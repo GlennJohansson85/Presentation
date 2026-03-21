@@ -1,0 +1,363 @@
+/* ==========================================================================   NAVBAR */
+.navbar {
+    z-index         : 4;
+    width           : 100%;
+    height          : 70px;
+    position        : fixed;
+    top             : 0;
+    padding         : 12px 20px;
+    box-sizing      : border-box;
+    background-color: transparent;
+    isolation       : isolate; /* Skapar ett eget lager-sammanhang så navbarens bakgrundslager hålls separerat från sidan bakom */
+}
+
+/* Bakgrundslager som tonas in vid scroll/öppen meny */
+.navbar::before {
+    content         : "";
+    position        : absolute;
+    inset           : 0;
+    z-index         : -1;
+    pointer-events  : none;
+    background-color: #282828;
+    opacity         : 0;
+    transition      : opacity 0.35s ease, box-shadow 0.35s ease;
+    box-shadow      : none;
+}
+
+/* bakgrunden hanteras av ::before
+.navbar.scrolled,
+.navbar.navbar--open {  
+} */
+
+/* Visuellt läge när man scrollat eller när menyn är öppen */
+.navbar.scrolled::before,
+.navbar.navbar--open::before {
+    opacity   : 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Yttre flex-container som positionerar hela menyblocket i navbaren. */
+.navbar-collapse {
+    max-height      : 70px;
+    width           : 100%;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+
+/* Flex-container för själva navigationslänkarna. */
+.navbar-nav {
+    flex-direction: row;
+    gap           : 140px;
+}
+
+
+/* ==========================================================================   NAV-LINK */
+.nav-link {
+    display            : inline-block;
+    padding            : 8px 16px;
+    font-family        : "Jost-300-light";
+    font-size          : 36px;
+    cursor             : pointer;
+    text-decoration    : none;
+    color              : #000;
+    background-image   : linear-gradient(#282828, #282828);
+    background-repeat  : no-repeat;
+    background-size    : 0% 1px;
+    background-position: 0 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering        : optimizeLegibility;
+    transition         : color 0.35s ease,
+                         background-size 0.35s ease;
+}
+
+/* Hover/focus-effekt för nav-länkar (underline animation) */
+.nav-link:hover,
+.nav-link:focus {
+    background-size: 100% 1px;
+    color          : #000;
+}
+
+
+
+/* NAV-LINK DROPDOWN | Tar bort underline-effekt*/
+.nav-link.dropdown-toggle,
+.nav-link.dropdown-toggle:hover,
+.nav-link.dropdown-toggle:focus,
+.navbar.scrolled .nav-link.dropdown-toggle,
+.navbar.scrolled .nav-link.dropdown-toggle:hover,
+.navbar.scrolled .nav-link.dropdown-toggle:focus,
+.navbar.navbar--open .nav-link.dropdown-toggle,
+.navbar.navbar--open .nav-link.dropdown-toggle:hover,
+.navbar.navbar--open .nav-link.dropdown-toggle:focus {
+    background-image: none;
+    background-size : 0 0;
+}
+
+
+/* Scroll/open =  link color change */
+.navbar.scrolled .nav-link,
+.navbar.navbar--open .nav-link {
+    color           : #f8f7e9;
+    background-image: linear-gradient(#f1f0e2, #f1f0e2);
+}
+
+
+/* ==========================================================================   DROPDOWN */
+
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-item.dropdown::after {
+    content  : "";
+    position : absolute;
+    left     : 0;
+    right    : 0;
+    top      : 100%;
+    height   : 4px;     /* täcker glappet */
+}
+
+/* Tar bort standardpilen från Bootstrap dropdown */
+.dropdown-toggle::after {
+    display: none;
+}
+
+/* Container för dropdown + positioneringsankare */
+.nav-item.dropdown {
+    position   : relative;
+    font-family: "Jost-300-Light";
+}
+
+/* Själva dropdown-menyn (position, animation, synlighet) */
+.dropdown-menu {
+    display         : block;
+    position        : absolute;
+    top             : 100%;
+    left            : 50%;
+    transform       : translateX(-50%) translateY(0px);
+    z-index         : 9999;
+    min-width       : 220px;
+    background-color: #f6f6f6;
+    box-shadow      : 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity         : 0;
+    visibility      : hidden;
+    pointer-events  : none;
+    transition      : opacity 0.25s ease,
+                      transform 0.25s ease,
+                      visibility 0.25s ease;
+}
+
+/* Synligt läge när Bootstrap lägger på .show */
+.dropdown-menu.show,
+.nav-item.dropdown:hover > .dropdown-menu,
+.nav-item.dropdown:focus-within > .dropdown-menu {
+    opacity        : 1;
+    visibility     : visible;
+    pointer-events : auto;
+    transform      : translateX(-50%) translateY(4px);
+}
+
+.dropdown-menu[data-bs-popper] {
+    top       : 100% !important;
+    left      : 50% !important;
+    transform : translateX(-50%) translateY(0px) !important;
+}
+
+
+/* Länkar inuti dropdown-menyn */
+.dropdown-item {
+    font-family: "Jost-300-Light";
+    font-size  : 22px;
+}
+
+/* Hover-effekt på dropdown-länkar */
+.dropdown-item:hover {
+    background-color: #d3c8bf54;
+}
+
+/* ==========================================================================   TOGGLER */
+.navbar-toggler {
+    border : 0;
+    padding: 0;
+}
+
+/* Tar bort fokus-outline på toggler */
+.navbar-toggler:focus {
+    outline   : none;
+    box-shadow: none;
+}
+
+/* Bas */
+.navbar-toggler-icon {
+    background-image: none;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    width           : 30px;
+    height          : 18px;
+}
+
+.navbar-toggler-icon .bar {
+    width           : 100%;
+    height          : 2px;
+    background-color: #282828;
+    transition      : transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+/* ÖPPEN → gör ett symmetriskt X */
+.navbar-toggler:not(.collapsed) .bar-1 {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .bar-2 {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .bar-3 {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Färgbyte på hamburger-ikonen när navbar är scrolled/öppen */
+.navbar.scrolled .navbar-toggler-icon .bar,
+.navbar.navbar--open .navbar-toggler-icon .bar {
+    background-color: #f1f0e2;
+}
+
+
+/* ==========================================================================   TABLET  */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .navbar {
+        height: 50px;
+    }
+
+    .nav-link {
+        font-size: 18px;
+    }
+
+    .navbar-nav {
+        gap: 20px;
+    }
+
+    .navbar.navbar--open:not(.scrolled) {
+        background-color: transparent;
+        box-shadow      : none;
+    }
+
+    .navbar-collapse {
+        position       : fixed;
+        top            : 0;
+        left           : 0;
+        right          : 0;
+        height         : 50px;
+        max-height     : 50px;
+        align-items    : center;
+        justify-content: center;
+        padding        : 0;
+        z-index        : 10000;
+    }
+
+    .navbar-collapse:not(.show) .navbar-nav {
+        display: none;
+    }
+
+    .navbar-collapse.show .navbar-nav {
+        display: flex;
+    }
+
+    .navbar-nav {
+        flex-direction : row;
+        flex-wrap      : nowrap;
+        align-items    : center;
+        justify-content: center;
+        white-space    : nowrap;
+        width          : 100%;
+    }
+
+    .nav-link,
+    .nav-item,
+    .navbar-toggler {
+        height     : auto;
+        line-height: normal;
+    }
+
+    .navbar-toggler {
+        position: relative;
+        z-index : 10001;
+    }
+
+    .dropdown-menu {
+        position : absolute !important;
+        min-width: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .nav-link {
+        font-size  : 16px;
+        height     : auto;
+        line-height: normal;
+    }
+
+    .navbar-toggler {
+        position : absolute;
+        left     : 20px;
+        top      : 50%;
+        transform: translateY(-50%);
+        z-index  : 10001;
+    }
+
+    .navbar-collapse {
+        position        : fixed;
+        top             : 0;
+        left            : 0;
+        right           : 0;
+        height          : 50px;
+        max-height      : 50px;
+        z-index         : 10000;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        background-color: transparent;
+    }
+
+    .navbar-collapse:not(.show) {
+        visibility    : hidden;
+        opacity       : 0;
+        pointer-events: none;
+    }
+
+    .navbar-collapse.show {
+        visibility    : visible;
+        opacity       : 1;
+        pointer-events: auto;
+    }
+
+    .navbar-collapse.show .navbar-nav {
+        display        : flex;
+        flex-direction : row;
+        flex-wrap      : nowrap;
+        align-items    : center;
+        justify-content: space-evenly;
+        width          : 100%;
+        white-space    : nowrap;
+        box-sizing     : border-box;
+        padding-left   : 60px;
+        padding-right  : 20px;
+        gap            : 10px;
+    }
+
+    .dropdown-menu {
+        position : absolute !important;
+        min-width: auto !important;
+    }
+}

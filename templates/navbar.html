@@ -1,0 +1,65 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- TOGGLER -->
+        <button class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+
+                <!-- HEM -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Hem</a>
+                </li>
+
+                <!-- ERFARENHET -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                        href="#"
+                        id="serviceDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-display="static"
+                        aria-expanded="false">
+                        Erfarenhet
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
+                        <li><a class="dropdown-item" href="#">Verksamhetsutveckling</a></li>
+                        <li><a class="dropdown-item" href="#">Digitalisering</a></li>
+                        <li><a class="dropdown-item" href="{% url 'portfolio' %}">Webbutveckling</a></li>
+                        <li><a class="dropdown-item" href="#">Arbetsmiljö</a></li>
+                        <li><a class="dropdown-item" href="#">Miljö</a></li>
+                        <li><a class="dropdown-item" href="#">Kvalitetssäkring</a></li>
+                        
+                    </ul>
+                </li>
+
+                <!-- UTBILDNING -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'utbildning' %}">Utbildning</a>
+                </li>
+
+                <!-- KONTAKT -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Kontakt</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
