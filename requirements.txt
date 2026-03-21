@@ -1,5 +1,10 @@
 asgiref==3.11.0
+brotli==1.2.0
 Django==6.0
+django-browser-reload==1.21.0
 fonttools==4.61.1
+gunicorn==25.1.0
+packaging==26.0
 sqlparse==0.5.4
 tzdata==2025.2
+whitenoise==6.12.0
