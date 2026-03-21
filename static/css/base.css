@@ -1,0 +1,667 @@
+/* ==========================================================================   GLOBAL */
+html { height: 100%; }
+
+body {
+    display         : flex;
+    flex-direction  : column;
+    min-height      : 100vh;
+    margin          : 0;
+    padding         : 0;
+    background-color: #d9d8cc;
+}
+
+main {
+    flex  : 1;
+    width : 100%;
+    margin: 0 auto;
+}
+
+p, ul, li {
+    font-family: "Jost-300-light";
+    font-size  : 16px;
+    color      : #282828;
+}
+
+/* ==========================================================================   :ROOT (VARS) */
+:root {
+    --sand        : #d9d8cc;
+    --sand-overlay: rgba(217, 216, 204, 0.79);
+}
+
+/* ==========================================================================   HOME GLOBAL */
+
+
+/* Utgångspunkt för overlay */
+.home-overlay {
+    position   : relative;
+    min-height : 100svh;
+    overflow   : hidden;
+}
+
+/* ---------------------  VIDEO */ 
+.home-video {
+    position       : absolute;
+    width          : 100%;
+    height         : 100%;
+    object-fit     : cover;
+    z-index        : 2;
+    pointer-events : none;
+    mix-blend-mode : multiply;
+    filter         : invert(1);
+    opacity        : 0.4;
+}
+
+.home-overlay::after {
+    content         : "";
+    position        : absolute;
+    inset           : 0;
+    background-color: var(--sand-overlay);
+    pointer-events  : none;
+    z-index         : 1;
+}
+
+.home-1-section,
+.home-2-section,
+.home-3-section {
+    position: relative;
+    z-index : 2;
+}
+
+.home-1-section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: clamp(96px, 12vw, 160px) 24px 56px;
+    overflow: hidden;
+}
+
+.home-1-container {
+    position: relative;
+    z-index : 1;
+    width   : min(100%, 1100px);
+    margin  : 0 auto;
+}
+
+.home-1-header {
+    margin                : 0;
+    font-family           : "Jost-900-Black", sans-serif;
+    font-size             : clamp(56px, 9vw, 120px);
+    line-height           : 0.92;
+    letter-spacing        : -0.06em;
+    color                 : #181818;
+    text-shadow           : 0 8px 24px rgba(236, 226, 226, 0.525);
+    text-wrap             : balance;
+    -webkit-font-smoothing: antialiased;
+    text-rendering        : optimizeLegibility;
+}
+
+.home-1-subheader {
+    margin     : 18px 0 0;
+    max-width  : 24ch;
+    font-size  : clamp(36px, 2.5vw, 34px);
+    font-family: "Jost-700-Bold", sans-serif;
+    line-height: 1.3;
+    color      : #181818;
+}
+
+
+/* ==========================================================================   HOME 2 SECTION */
+.home-2-section {
+    position: relative;
+    overflow: hidden;
+    padding : 80px 0;
+}
+
+
+
+.home-2-container {
+    position : relative;
+    z-index  : 1;
+    max-width: 1400px;
+    margin   : 0 auto;
+    padding  : 0 40px;
+}
+
+
+
+/* ==========================================================================   CONTACT.HTML */
+.contact-1-section {
+    min-height      : 800px;
+    padding         : 80px 0;
+    position        : relative;
+    z-index         : 2;
+    overflow        : hidden;
+    background-color: #e1e0d7;
+}
+
+.contact-1-video {
+    position      : absolute;
+    inset         : 0;
+    width         : 100%;
+    height        : 100%;
+    object-fit    : cover;
+    pointer-events: none;
+    z-index       : 0;
+    mix-blend-mode: multiply;
+    filter        : invert(1);
+    opacity       : 0.8;
+}
+
+/* täcker hela sektionen och ligger längst bak */
+.contact-1-section::after {
+    content         : "";
+    position        : absolute;
+    inset           : 0;
+    pointer-events  : none;
+    z-index         : 1;
+    background-color: var(--sand-overlay);
+}
+
+/*  botten fade */
+.contact-1-section::before {
+    content       : "";
+    position      : absolute;
+    left          : 0;
+    right         : 0;
+    bottom        : 0;
+    height        : 220px;
+    pointer-events: none;
+    z-index       : 2;
+    background: linear-gradient(
+        to bottom,
+        rgba(217, 216, 204, 0) 0%,      /* Transparent sand – ingen effekt högst upp */
+        rgba(217, 216, 204, 0.65) 60%,  /* Gradvis infärgning mot sand */
+        rgba(217, 216, 204, 1) 100%     /* Full sand – smälter ihop med sidans bakgrund */
+    );
+}
+
+.contact-1-container {
+    position: absolute;
+    inset   : 0;
+    z-index : 3;
+}
+
+.contact-1-group {
+    position  : absolute;
+    left      : 5%;
+    top       : 40%;
+    transform : translateY(-50%);
+    display   : grid;
+    row-gap   : 10px;
+    text-align: left;
+}
+
+.contact-1-header {
+    margin      : 0;
+    padding     : 0;
+    font-family : "Jost-900-Black";
+    font-size   : 36px;
+    color       : #282828;
+    white-space : nowrap;
+}
+
+/* ==========================================================================
+   PORTFOLIO
+   ========================================================================== */
+
+.port-1-section {
+    position  : relative;
+    min-height: 100vh;
+    margin    : 0;
+    padding   : 120px 0 80px;
+    overflow  : hidden;
+}
+
+.port-1-section::after {
+    content         : "";
+    position        : absolute;
+    inset           : 0;
+    pointer-events  : none;
+    z-index         : 1;
+    background-color: var(--sand-overlay);
+}
+
+.port-1-video {
+    position       : absolute;
+    inset          : 0;
+    width          : 100%;
+    height         : 100%;
+    object-fit     : contain;
+    object-position: center;
+    pointer-events : none;
+    z-index        : 0;
+    mix-blend-mode : multiply;
+    filter         : invert(1);
+    opacity        : 0.22;
+}
+
+.port-1-container {
+    position : relative;
+    z-index  : 2;
+    width    : 100%;
+    max-width: 1400px;
+    margin   : 0 auto;
+    padding  : 0 24px;
+}
+
+.port-1-header {
+    margin     : 0 0 48px;
+    text-align : center;
+    font-family: "Jost-900-Black-Italic";
+    font-size  : 72px;
+    line-height: 1.05;
+    color      : #282828;
+}
+
+.port-1-grid {
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 28px;
+    margin               : 0 auto;
+}
+
+
+.port-1-col {
+    display       : flex;
+    flex-direction: column;
+    height        : 100%;
+    border        : 3px solid #111;
+    border-radius : 6px;
+    background    : rgba(217, 216, 204, 0.72);
+    overflow      : hidden;
+    position      : relative;
+    z-index       : 2;
+}
+
+/* --------------------------- PORT-VIDEO */
+.port-thumb-video {
+    position     : relative;
+    padding      : 0;
+    overflow     : hidden;
+    border       : 2px solid #111;
+    border-radius: 4px;
+    background   : #f7f3e8;
+    cursor       : pointer;
+}
+
+.port-thumb-video img {
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+    display   : block;
+}
+
+.play-icon {
+    position      : absolute;
+    inset         : 0;
+    display       : grid;
+    place-items   : center;
+    font-size     : 28px;
+    color         : white;
+    background    : rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+}
+
+/* --------------------------- PORT-IMG */
+.port-img {
+    width     : 100%;
+    height    : 280px;
+    object-fit: contain;
+    display   : block;
+    padding   : 18px;
+    background: rgba(255, 255, 255, 0.12);
+    cursor    : zoom-in;
+    transition: transform 0.25s ease;
+}
+
+.port-img:hover {
+    transform: scale(1.02);
+}
+
+/* --------------------------- PORT-THUMB */
+.port-thumbs {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: center;
+    gap            : 10px;
+    padding        : 0 18px 18px;
+}
+
+.port-thumb {
+    width        : 72px;
+    height       : 72px;
+    object-fit   : cover;
+    display      : block;
+    border       : 2px solid #111;
+    border-radius: 4px;
+    background   : #f7f3e8;
+    cursor       : pointer;
+    transition   : transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.port-thumb:hover {
+    transform     : translateY(-2px) scale(1.05);
+    box-shadow    : 0 8px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* --------------------------- PORT-CARD */
+.port-card-body {
+    padding   : 18px 20px 22px;
+    border-top: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.port-card-title {
+    margin     : 0 0 10px;
+    font-family: "Jost-900-Black-Italic";
+    font-size  : 24px;
+    line-height: 1.2;
+    color      : #282828;
+}
+
+.port-card-text {
+    margin     : 0;
+    font-size  : 16px;
+    line-height: 1.7;
+    color      : #2f2f2f;
+}
+
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+.img-lightbox {
+    position  : fixed;
+    inset     : 0;
+    display   : none;
+    background: rgba(0, 0, 0, 0.92);
+    z-index   : 9999;
+}
+
+.img-lightbox.open {
+    display: block;
+}
+
+.img-lightbox-stage {
+    position   : absolute;
+    inset      : 30px;
+    overflow   : auto;
+    display    : grid;
+    place-items: center;
+}
+
+.img-lightbox img {
+    display      : block;
+    max-width    : 92vw;
+    max-height   : 92vh;
+    width        : auto;
+    height       : auto;
+    object-fit   : contain;
+    border-radius: 6px;
+    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
+    cursor       : zoom-in;
+}
+
+.img-lightbox.zoomed img {
+    max-width : none;
+    max-height: none;
+    cursor    : zoom-out;
+}
+
+.img-lightbox-close {
+    position   : absolute;
+    top        : 20px;
+    right      : 28px;
+    background : transparent;
+    border     : none;
+    color      : #fff;
+    font-size  : 48px;
+    line-height: 1;
+    cursor     : pointer;
+    z-index    : 10000;
+}
+
+#lightboxVideo {
+    display      : none;
+    max-width    : 92vw;
+    max-height   : 92vh;
+    width        : auto;
+    height       : auto;
+    border-radius: 6px;
+    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
+    background   : #000;
+}
+
+/* ==========================================================================   INTEGRITETSPOLICY.HTML  */
+.policy-article {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    max-width       : 1000px;
+    width           : 100%;
+    min-height      : 800px;
+    margin          : 0 auto;
+    padding         : clamp(20px, 4vw, 80px);
+    padding-top     : calc(clamp(20px, 4vw, 40px) + 64px); /* mer plats för rutan */
+    position        : relative;
+    z-index         : 2;
+    overflow        : hidden;
+    color           : #282828;
+    background-color: #e1e0d7;
+    box-sizing      : border-box;
+}
+
+.policy-header-container {
+    margin: 0 0 20px 0;
+}
+
+.policy-h1 {
+    margin     : 0 0 10px 0;
+    font-family: "Jost-500-Medium";
+}
+
+.policy-updated {
+    margin: 5px 0 20px 0;
+}
+
+.policy-section {
+    margin-top: 10px;
+}
+
+.policy-section:first-of-type {
+    margin-top: 0;
+}
+
+.policy-h3 {
+    font-family: "Jost-400-Book";
+}
+
+.policy-container {
+    padding-left: 30px;
+}
+
+.policy-ul {
+    font-size  : 16px;
+
+}
+
+/* ==========================================================================   TABLET  */
+@media (min-width: 769px) and (max-width: 1200px) {
+    /* ------------------------------------------------   HOME  */ 
+
+
+    /* ------------------------------------------------   PORTFOLIO  */
+    .port-1-section {
+        padding: 110px 0 70px;
+    }
+
+    .port-1-container {
+        padding: 0 20px;
+    }
+
+    .port-1-header {
+        font-size: 56px;
+        margin-bottom: 36px;
+    }
+
+    .port-1-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    .port-img {
+        height: 240px;
+        padding: 16px;
+    }
+
+    .port-thumbs {
+        gap: 8px;
+        padding: 0 16px 16px;
+    }
+
+    .port-thumb {
+        width: 64px;
+        height: 64px;
+    }
+
+    .port-card-body {
+        padding: 16px 18px 20px;
+    }
+
+    .port-card-title {
+        font-size: 22px;
+    }
+
+    .port-card-text {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* ------------------------------------------------   POLICY  */ 
+    .policy-ul { font-size  : 14px;}
+}
+
+/* ==========================================================================   MOBILE  */
+@media (max-width: 768px) {
+    /* ------------------------------------------------   GLOBAL  */
+    p, ul, li {
+        font-size  : 14px;
+    }
+    /* ------------------------------------------------   HOME-1-SECTION  */ 
+    .home-1-section {
+        align-items: flex-end;
+        padding: 104px 20px 44px;
+    }
+
+    .home-1-header {
+        font-size: clamp(42px, 14vw, 68px);
+    }
+
+    .home-1-subheader {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+}
+
+
+
+    /* ------------------------------------------------   HOME-2-SECTION  */ 
+    .home-2-container {
+        position : relative;
+        z-index  : 1;
+        max-width: 1400px;
+        margin   : 0 auto;
+        padding  : 0 20px;
+    }
+    .home-2-header {
+        text-align : center;
+        font-family: "Jost-700-Bold";
+        font-size  : 20px;
+        color      : #282828;
+    }
+
+    .home-2-grid {
+        grid-template-columns: 1fr;   /* en kolumn */
+        gap                  : 18px;  /* lite mindre mellanrum */
+    }
+
+    .home-2-col {
+        width     : 100%;                  /* identisk bredd */
+        max-width : 100%;
+        box-sizing: border-box;
+    }
+
+    .home-2-col-header {
+        font-family: "Jost-500-Medium";
+        font-size  : 18px;
+    }
+
+    .home-2-li {
+        position     : relative;
+        padding-left : 18px;
+        margin-bottom: 12px;
+        font-family  : "Jost-400-Book";
+        font-size    : 14px;
+        line-height  : 1.5;
+
+    }
+
+    /* ------------------------------------------------   PORTFOLIO  */
+    .port-1-section {
+        padding: 100px 0 60px;
+    }
+
+    .port-1-container {
+        padding: 0 16px;
+    }
+
+    .port-1-header {
+        font-size: 40px;
+        margin-bottom: 28px;
+    }
+
+    .port-1-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .port-img {
+        height: 220px;
+        padding: 14px;
+    }
+
+    .port-thumbs {
+        gap: 8px;
+        padding: 0 14px 14px;
+    }
+
+    .port-thumb {
+        width: 58px;
+        height: 58px;
+    }
+
+    .port-card-body {
+        padding: 16px 16px 20px;
+    }
+
+    .port-card-title {
+        font-size: 20px;
+    }
+
+    .port-card-text {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .img-lightbox {
+        padding: 16px;
+    }
+
+    .img-lightbox-close {
+        top: 12px;
+        right: 18px;
+        font-size: 40px;
+    }
+    /* ------------------------------------------------   POLICY  */ 
+    .policy-ul { font-size  : 14px;}
+
+}

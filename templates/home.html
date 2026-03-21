@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main>
+
+        <div class="home-overlay">
+            <video class="home-video" autoplay muted loop>
+                <source src="{% static 'video/smoke35-slower.mp4' %}" type="video/mp4">
+            </video>
+
+            <!-- 1 SECTION -->
+            <section class="home-1-section">
+                <div class="home-1-container">
+                    <h1 class="home-1-header">Glenn Johansson</h1>
+                    <p class="home-1-subheader">Erfaren IT- och Verksamhetsutvecklare</p>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+{% endblock %}
