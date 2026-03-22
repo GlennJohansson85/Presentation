@@ -20,3 +20,6 @@ def portfolio(request):
 
 def policy(request):
     return render(request, "policy.html")
+
+def cv(request):
+    return render(request, "cv.html")

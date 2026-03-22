@@ -1,29 +1,29 @@
 ﻿{% extends "base.html" %}
 {% load static %}
 
+{% block title %} Glenns portfolio {% endblock %}
+
 {% block content %}
 <section class="port-1-section">
 
+    <!-- VIDEO -->
     <video class="port-1-video" autoplay muted loop playsinline>
         <source src="{% static 'video/smoke32-ver.mp4' %}" type="video/mp4">
     </video>
 
     <div class="port-1-container">
-        <h2 class="port-1-header">Webbplatser som jag utvecklat</h2>
-
+        <h1 class="port-1-header">Portfolio</h1>
         <div class="port-1-grid">
 
             <!-- E-SHOP -->
             <div class="port-1-col">
                 <img class="port-img" src="{% static 'images/mockup-eshop.png' %}" alt="E-shop webbplats">
-
                 <div class="port-thumbs">
                     <img class="port-thumb" src="{% static 'images/eshop-mobile-1.png' %}" data-full="{% static 'images/eshop-mobile-1.png' %}" alt="First half of all pages in mobile view">
                     <img class="port-thumb" src="{% static 'images/eshop-mobile-2.png' %}" data-full="{% static 'images/eshop-mobile-2.png' %}" alt="Second half of all pages in mobile view">
                     <img class="port-thumb" src="{% static 'images/eshop-desktop.png' %}" data-full="{% static 'images/eshop-desktop.png' %}" alt="Landing page">
                     <img class="port-thumb" src="{% static 'images/eshop-mobile-full.png' %}" data-full="{% static 'images/eshop-mobile-full.png' %}" alt="Landing page">
                 </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">E-shop</h3>
                     <p class="port-card-text">
@@ -32,19 +32,16 @@
                         Lösningen är förberedd för både lokal utveckling och produktion på Heroku.
                     </p>
                 </div>
-
             </div>
 
             <!-- KOMPIC -->
             <div class="port-1-col">
                 <img class="port-img" src="{% static 'images/mockup-kompic.png' %}" alt="Kompic webbplats">
-
                 <div class="port-thumbs">
                     <img class="port-thumb" src="{% static 'images/kompic-desktop-full.png' %}" data-full="{% static 'images/kompic-desktop-full.png' %}" alt="Homepage - full size">
                     <img class="port-thumb" src="{% static 'images/kompic-mobile-full.png' %}" data-full="{% static 'images/kompic-mobile-full.png' %}" alt="Homepage - mobile - full size">
                     <img class="port-thumb" src="{% static 'images/kompic-mobile-dashboard-full.png' %}" data-full="{% static 'images/kompic-mobile-dashboard-full.png' %}" alt="Hemsida i mobil format">
                 </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">Kompic</h3>
                     <p class="port-card-text">
@@ -59,30 +56,21 @@
 
             <!-- TECHNET -->
             <div class="port-1-col">
-                <img class="port-img"
-                    src="{% static 'images/mockup-technet.png' %}"
-                    alt="RSAM webbplats"
-                    data-type="video"
-                    data-src="{% static 'video/technet-video.mp4' %}"
-                    data-poster="{% static 'images/mockup-technet.png' %}"
-                    data-alt="RSAM demo video">
-
+                <img class="port-img" src="{% static 'images/mockup-technet.png' %}" alt="Technet webbplats">
                     <div class="port-thumbs">
                         <img class="port-thumb" src="{% static 'images/technet-desktop-full.png' %}" data-full="{% static 'images/technet-desktop-full.png' %}" alt="Hemsida i full bild">
                         <img class="port-thumb" src="{% static 'images/technet-mobile-full.png' %}" data-full="{% static 'images/technet-mobile-full.png' %}" alt="Hemsida i mobil format">
-
                         <button class="port-thumb port-thumb-video"
                                 type="button"
                                 data-type="video"
                                 data-src="{% static 'video/technet-video.mp4' %}"
                                 data-poster="{% static 'images/technet-thumb.png' %}"
-                                data-alt="RSAM demo video"
+                                data-alt="Technet demo video"
                                 aria-label="Visa video">
                             <img src="{% static 'images/technet-thumb.png' %}" alt="Video preview">
                             <span class="play-icon">▶</span>
                         </button>
                     </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">Technet AB</h3>
                     <p class="port-card-text">
@@ -94,18 +82,10 @@
 
             <!-- RSAM -->
             <div class="port-1-col">
-                <img class="port-img"
-                    src="{% static 'images/mockup-rsam.png' %}"
-                    alt="RSAM webbplats"
-                    data-type="video"
-                    data-src="{% static 'video/rsam-video.mp4' %}"
-                    data-poster="{% static 'images/mockup-rsam.png' %}"
-                    data-alt="RSAM demo video">
-
+                <img class="port-img" src="{% static 'images/mockup-rsam.png' %}" alt="RSAM webbplats">
                     <div class="port-thumbs">
                         <img class="port-thumb" src="{% static 'images/rsam-full.png' %}" data-full="{% static 'images/rsam-full.png' %}" alt="Hemsida i full bild">
                         <img class="port-thumb" src="{% static 'images/rsam-mobile.png' %}" data-full="{% static 'images/rsam-mobile.png' %}" alt="Hemsida i mobil format">
-
                         <button class="port-thumb port-thumb-video"
                                 type="button"
                                 data-type="video"
@@ -117,7 +97,6 @@
                             <span class="play-icon">▶</span>
                         </button>
                     </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">RSAM</h3>
                     <p class="port-card-text">
@@ -130,12 +109,10 @@
             <!-- TANDKLINIK -->
             <div class="port-1-col">
                 <img class="port-img" src="{% static 'images/mockup-tandklinik.png' %}" alt="Tandklinik webbplats">
-
                 <div class="port-thumbs">
                     <img class="port-thumb" src="{% static 'images/tand-desktop-full.png' %}" data-full="{% static 'images/tand-desktop-full.png' %}" alt="Hemsida i full format">
                     <img class="port-thumb" src="{% static 'images//tand-mobile-full.png' %}" data-full="{% static 'images//tand-mobile-full.png' %}" alt="hemsida i mobil format">
                 </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">Tandklinik</h3>
                     <p class="port-card-text">
@@ -147,12 +124,10 @@
             <!-- WALL -->
             <div class="port-1-col">
                 <img class="port-img" src="{% static 'images/mockup-wall.png' %}" alt="Wall webbplats">
-
                 <div class="port-thumbs">
                     <img class="port-thumb" src="{% static 'images/wall-mobile-full.png' %}" data-full="{% static 'images/wall-mobile-full.png' %}" alt="Hemsida i mobil format">
                     <img class="port-thumb" src="{% static 'images/wall-mobile-2.png' %}" data-full="{% static 'images/wall-mobile-2.png' %}" alt="blogg post">
                 </div>
-
                 <div class="port-card-body">
                     <h3 class="port-card-title">Wall</h3>
                     <p class="port-card-text">

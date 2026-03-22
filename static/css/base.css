@@ -106,25 +106,6 @@ p, ul, li {
 }
 
 
-/* ==========================================================================   HOME 2 SECTION */
-.home-2-section {
-    position: relative;
-    overflow: hidden;
-    padding : 80px 0;
-}
-
-
-
-.home-2-container {
-    position : relative;
-    z-index  : 1;
-    max-width: 1400px;
-    margin   : 0 auto;
-    padding  : 0 40px;
-}
-
-
-
 /* ==========================================================================   CONTACT.HTML */
 .contact-1-section {
     min-height      : 800px;
@@ -248,7 +229,7 @@ p, ul, li {
 .port-1-header {
     margin     : 0 0 48px;
     text-align : center;
-    font-family: "Jost-900-Black-Italic";
+    font-family: "Jost-900-Black";
     font-size  : 72px;
     line-height: 1.05;
     color      : #282828;
@@ -310,7 +291,7 @@ p, ul, li {
     object-fit: contain;
     display   : block;
     padding   : 18px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(154, 154, 154, 0.26);
     cursor    : zoom-in;
     transition: transform 0.25s ease;
 }
@@ -326,6 +307,7 @@ p, ul, li {
     justify-content: center;
     gap            : 10px;
     padding        : 0 18px 18px;
+    background: rgba(154, 154, 154, 0.26);
 }
 
 .port-thumb {
@@ -335,7 +317,7 @@ p, ul, li {
     display      : block;
     border       : 2px solid #111;
     border-radius: 4px;
-    background   : #f7f3e8;
+    background   : rgba(249, 248, 247, 0.61);
     cursor       : pointer;
     transition   : transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
@@ -560,9 +542,6 @@ p, ul, li {
     .home-1-subheader {
         font-size: clamp(18px, 5vw, 24px);
     }
-}
-
-
 
     /* ------------------------------------------------   HOME-2-SECTION  */ 
     .home-2-container {
@@ -663,5 +642,5 @@ p, ul, li {
     }
     /* ------------------------------------------------   POLICY  */ 
     .policy-ul { font-size  : 14px;}
-
+    
 }
