@@ -1,5 +1,7 @@
 /* ==========================================================================   GLOBAL */
-html { height: 100%; }
+html {
+    height: 100%;
+}
 
 body {
     display         : flex;
@@ -16,7 +18,9 @@ main {
     margin: 0 auto;
 }
 
-p, ul, li {
+p,
+ul,
+li {
     font-family: "Jost-300-light";
     font-size  : 16px;
     color      : #282828;
@@ -63,7 +67,7 @@ p, ul, li {
     margin       : 10px 0;
     color        : #000000;
     border       : 2px solid #0000008e;
-    transition: opacity 0.5s ease;
+    transition   : opacity 0.5s ease;
 }
 
 .custom-warning {
@@ -80,31 +84,29 @@ p, ul, li {
 
 /* ==========================================================================   :ROOT (VARS) */
 :root {
-    --sand        : #d9d8cc;
+    --sand: #d9d8cc;
     --sand-overlay: rgba(217, 216, 204, 0.79);
 }
 
 /* ==========================================================================   HOME GLOBAL */
-
-
 /* Utgångspunkt för overlay */
 .home-overlay {
-    position   : relative;
-    min-height : 100svh;
-    overflow   : hidden;
+    position  : relative;
+    min-height: 100svh;
+    overflow  : hidden;
 }
 
-/* ---------------------  VIDEO */ 
+/* ---------------------  VIDEO */
 .home-video {
-    position       : absolute;
-    width          : 100%;
-    height         : 100%;
-    object-fit     : cover;
-    z-index        : 2;
-    pointer-events : none;
-    mix-blend-mode : multiply;
-    filter         : invert(1);
-    opacity        : 0.4;
+    position      : absolute;
+    width         : 100%;
+    height        : 100%;
+    object-fit    : cover;
+    z-index       : 2;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    filter        : invert(1);
+    opacity       : 0.4;
 }
 
 .home-overlay::after {
@@ -124,12 +126,12 @@ p, ul, li {
 }
 
 .home-1-section {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
+    position   : relative;
+    min-height : 100svh;
+    display    : flex;
     align-items: center;
-    padding: clamp(96px, 12vw, 160px) 24px 56px;
-    overflow: hidden;
+    padding    : clamp(96px, 12vw, 160px) 24px 56px;
+    overflow   : hidden;
 }
 
 .home-1-container {
@@ -163,102 +165,36 @@ p, ul, li {
 
 
 /* ==========================================================================   CONTACT.HTML */
-.contact-1-section {
-    min-height      : 800px;
-    padding         : 80px 0;
-    position        : relative;
-    z-index         : 2;
-    overflow        : hidden;
-    background-color: #e1e0d7;
+.contact-container {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
 }
 
-.contact-1-video {
-    position      : absolute;
-    inset         : 0;
-    width         : 100%;
-    height        : 100%;
-    object-fit    : cover;
-    pointer-events: none;
-    z-index       : 0;
-    mix-blend-mode: multiply;
-    filter        : invert(1);
-    opacity       : 0.8;
+.card-body {
+    max-width: 900px;
+} 
+
+.contact-text {
+    margin-top      : 10px;
+    padding         : 10px;
+    height          : 100px;
+    background-color: #cccbb875;
+    border-radius   : 10px;
 }
 
-/* täcker hela sektionen och ligger längst bak */
-.contact-1-section::after {
-    content         : "";
-    position        : absolute;
-    inset           : 0;
-    pointer-events  : none;
-    z-index         : 1;
-    background-color: var(--sand-overlay);
+.label {
+    font-family: "Jost-500-Medium";
+    font-size  : 28px;
 }
 
-/*  botten fade */
-.contact-1-section::before {
-    content       : "";
-    position      : absolute;
-    left          : 0;
-    right         : 0;
-    bottom        : 0;
-    height        : 220px;
-    pointer-events: none;
-    z-index       : 2;
-    background: linear-gradient(
-        to bottom,
-        rgba(217, 216, 204, 0) 0%,      /* Transparent sand – ingen effekt högst upp */
-        rgba(217, 216, 204, 0.65) 60%,  /* Gradvis infärgning mot sand */
-        rgba(217, 216, 204, 1) 100%     /* Full sand – smälter ihop med sidans bakgrund */
-    );
+.text {
+    font-family    : "Jost-300-Light";
+    font-size      : 22px;
+    text-decoration: none;
 }
 
-.contact-1-container {
-    position: absolute;
-    inset   : 0;
-    z-index : 3;
-}
-
-.contact-1-group {
-    position  : absolute;
-    left      : 5%;
-    top       : 40%;
-    transform : translateY(-50%);
-    display   : grid;
-    row-gap   : 10px;
-    text-align: left;
-}
-
-.contact-1-header {
-    margin      : 0;
-    padding     : 0;
-    font-family : "Jost-900-Black";
-    font-size   : 36px;
-    color       : #282828;
-    white-space : nowrap;
-}
-
-/* ==========================================================================
-   PORTFOLIO
-   ========================================================================== */
-
-.port-1-section {
-    position  : relative;
-    min-height: 100vh;
-    margin    : 0;
-    padding   : 120px 0 80px;
-    overflow  : hidden;
-}
-
-.port-1-section::after {
-    content         : "";
-    position        : absolute;
-    inset           : 0;
-    pointer-events  : none;
-    z-index         : 1;
-    background-color: var(--sand-overlay);
-}
-
+/* ==========================================================================   PORTFÖLJ.HTML */
 .port-1-video {
     position       : absolute;
     inset          : 0;
@@ -271,21 +207,17 @@ p, ul, li {
     mix-blend-mode : multiply;
     filter         : invert(1);
     opacity        : 0.22;
+    */
 }
 
-
-
-
-
-.port-1-grid {
+.port-grid {
     display              : grid;
     grid-template-columns: repeat(3, 1fr);
     gap                  : 28px;
     margin               : 0 auto;
 }
 
-
-.port-1-col {
+.port-col {
     display       : flex;
     flex-direction: column;
     height        : 100%;
@@ -349,7 +281,7 @@ p, ul, li {
     justify-content: center;
     gap            : 10px;
     padding        : 0 18px 18px;
-    background: rgba(154, 154, 154, 0.26);
+    background     : rgba(154, 154, 154, 0.26);
 }
 
 .port-thumb {
@@ -365,8 +297,8 @@ p, ul, li {
 }
 
 .port-thumb:hover {
-    transform     : translateY(-2px) scale(1.05);
-    box-shadow    : 0 8px 12px rgba(0, 0, 0, 0.12);
+    transform : translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -391,9 +323,7 @@ p, ul, li {
     color      : #2f2f2f;
 }
 
-/* ==========================================================================
-   LIGHTBOX
-   ========================================================================== */
+/* --------------------------- LIGHTBOX */
 .img-lightbox {
     position  : fixed;
     inset     : 0;
@@ -458,15 +388,16 @@ p, ul, li {
 
 /* ==========================================================================   INTEGRITETSPOLICY.HTML  */
 .policy-article {
-    display         : flex;
-    flex-direction  : column;
-    justify-content : center;
-    max-width       : 1000px;
-    width           : 100%;
-    min-height      : 800px;
-    margin          : 0 auto;
-    padding         : clamp(20px, 4vw, 80px);
-    padding-top     : calc(clamp(20px, 4vw, 40px) + 64px); /* mer plats för rutan */
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    max-width      : 1000px;
+    width          : 100%;
+    min-height     : 800px;
+    margin         : 0 auto;
+    padding        : clamp(20px, 4vw, 80px);
+    padding-top    : calc(clamp(20px, 4vw, 40px) + 64px);
+    /* mer plats för rutan */
     position        : relative;
     z-index         : 2;
     overflow        : hidden;
@@ -505,13 +436,14 @@ p, ul, li {
 }
 
 .policy-ul {
-    font-size  : 16px;
+    font-size: 16px;
 
 }
 
 /* ==========================================================================   TABLET  */
 @media (min-width: 769px) and (max-width: 1200px) {
-    /* ------------------------------------------------   GLOBAL */ 
+
+    /* ------------------------------------------------   GLOBAL */
     .page-section {
         padding: 110px 0 70px;
     }
@@ -530,21 +462,21 @@ p, ul, li {
 
     .port-1-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        gap                  : 22px;
     }
 
     .port-img {
-        height: 240px;
+        height : 240px;
         padding: 16px;
     }
 
     .port-thumbs {
-        gap: 8px;
+        gap    : 8px;
         padding: 0 16px 16px;
     }
 
     .port-thumb {
-        width: 64px;
+        width : 64px;
         height: 64px;
     }
 
@@ -557,38 +489,43 @@ p, ul, li {
     }
 
     .port-card-text {
-        font-size: 15px;
+        font-size  : 15px;
         line-height: 1.6;
     }
 
-    /* ------------------------------------------------   POLICY  */ 
-    .policy-ul { font-size  : 14px;}
+    /* ------------------------------------------------   POLICY  */
+    .policy-ul {
+        font-size: 14px;
+    }
 }
 
 /* ==========================================================================   MOBILE  */
 @media (max-width: 768px) {
+
     /* ------------------------------------------------   GLOBAL  */
-    p, ul, li {
-        font-size  : 14px;
+    p,
+    ul,
+    li {
+        font-size: 14px;
     }
 
     .page-section {
         padding: 100px 0 60px;
     }
 
-    .page-container{
+    .page-container {
         padding: 0 16px;
     }
 
     .page-header {
-        font-size: 40px;
+        font-size    : 40px;
         margin-bottom: 28px;
     }
 
-    /* ------------------------------------------------   HOME-1-SECTION  */ 
+    /* ------------------------------------------------   HOME-1-SECTION  */
     .home-1-section {
         align-items: flex-end;
-        padding: 104px 20px 44px;
+        padding    : 104px 20px 44px;
     }
 
     .home-1-header {
@@ -599,7 +536,7 @@ p, ul, li {
         font-size: clamp(18px, 5vw, 24px);
     }
 
-    /* ------------------------------------------------   HOME-2-SECTION  */ 
+    /* ------------------------------------------------   HOME-2-SECTION  */
     .home-2-container {
         position : relative;
         z-index  : 1;
@@ -607,6 +544,7 @@ p, ul, li {
         margin   : 0 auto;
         padding  : 0 20px;
     }
+
     .home-2-header {
         text-align : center;
         font-family: "Jost-700-Bold";
@@ -615,12 +553,15 @@ p, ul, li {
     }
 
     .home-2-grid {
-        grid-template-columns: 1fr;   /* en kolumn */
-        gap                  : 18px;  /* lite mindre mellanrum */
+        grid-template-columns: 1fr;
+        /* en kolumn */
+        gap: 18px;
+        /* lite mindre mellanrum */
     }
 
     .home-2-col {
-        width     : 100%;                  /* identisk bredd */
+        width: 100%;
+        /* identisk bredd */
         max-width : 100%;
         box-sizing: border-box;
     }
@@ -645,21 +586,21 @@ p, ul, li {
 
     .port-1-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap                  : 20px;
     }
 
     .port-img {
-        height: 220px;
+        height : 220px;
         padding: 14px;
     }
 
     .port-thumbs {
-        gap: 8px;
+        gap    : 8px;
         padding: 0 14px 14px;
     }
 
     .port-thumb {
-        width: 58px;
+        width : 58px;
         height: 58px;
     }
 
@@ -672,7 +613,7 @@ p, ul, li {
     }
 
     .port-card-text {
-        font-size: 14px;
+        font-size  : 14px;
         line-height: 1.6;
     }
 
@@ -681,11 +622,35 @@ p, ul, li {
     }
 
     .img-lightbox-close {
-        top: 12px;
-        right: 18px;
+        top      : 12px;
+        right    : 18px;
         font-size: 40px;
     }
-    /* ------------------------------------------------   POLICY  */ 
-    .policy-ul { font-size  : 14px;}
-    
+
+    /* ------------------------------------------------   POLICY  */
+    .policy-ul {
+        font-size: 14px;
+    }
+
+    /* ------------------------------------------------   CONTACT */
+    .contact-text {
+        text-align      : center;
+        vertical-align  : center;
+        margin-top      : 10px;
+        padding         : 5px;
+        height          : 65px;
+        background-color: #cccbb875;
+        border-radius   : 10px;
+    }
+
+    .label {
+        font-size: 20px;
+    }
+
+    .text {
+
+        font-size      : 16px;
+        text-decoration: none;
+    }
+
 }
