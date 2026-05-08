@@ -22,6 +22,62 @@ p, ul, li {
     color      : #282828;
 }
 
+.page-section {
+    position  : relative;
+    min-height: 100vh;
+    margin    : 0;
+    padding   : 120px 0 80px;
+    overflow  : hidden;
+}
+
+.page-container {
+    position : relative;
+    z-index  : 2;
+    width    : 100%;
+    max-width: 1400px;
+    margin   : 0 auto;
+    padding  : 0 24px;
+}
+
+.page-header {
+    margin     : 0 0 48px;
+    text-align : center;
+    font-family: "Jost-900-Black";
+    font-size  : 72px;
+    line-height: 1.05;
+    color      : #282828;
+}
+
+.alert-container {
+    position: fixed;
+    top     : 5%;
+    right   : 5%;
+    z-index : 99999;
+}
+
+.custom-alert {
+    font-family  : "Jost-500-Medium-Italic";
+    font-size    : 24px;
+    padding      : 15px;
+    border-radius: 6px;
+    margin       : 10px 0;
+    color        : #000000;
+    border       : 2px solid #0000008e;
+    transition: opacity 0.5s ease;
+}
+
+.custom-warning {
+    background-color: rgba(218, 236, 14, 0.863);
+}
+
+.custom-error {
+    background-color: red;
+}
+
+.custom-success {
+    background-color: green;
+}
+
 /* ==========================================================================   :ROOT (VARS) */
 :root {
     --sand        : #d9d8cc;
@@ -217,23 +273,9 @@ p, ul, li {
     opacity        : 0.22;
 }
 
-.port-1-container {
-    position : relative;
-    z-index  : 2;
-    width    : 100%;
-    max-width: 1400px;
-    margin   : 0 auto;
-    padding  : 0 24px;
-}
 
-.port-1-header {
-    margin     : 0 0 48px;
-    text-align : center;
-    font-family: "Jost-900-Black";
-    font-size  : 72px;
-    line-height: 1.05;
-    color      : #282828;
-}
+
+
 
 .port-1-grid {
     display              : grid;
@@ -469,22 +511,22 @@ p, ul, li {
 
 /* ==========================================================================   TABLET  */
 @media (min-width: 769px) and (max-width: 1200px) {
-    /* ------------------------------------------------   HOME  */ 
-
-
-    /* ------------------------------------------------   PORTFOLIO  */
-    .port-1-section {
+    /* ------------------------------------------------   GLOBAL */ 
+    .page-section {
         padding: 110px 0 70px;
     }
 
-    .port-1-container {
+    .page-container {
         padding: 0 20px;
     }
 
-    .port-1-header {
+    .page-header {
         font-size: 56px;
         margin-bottom: 36px;
     }
+
+    /* ------------------------------------------------   PORTFOLIO  */
+
 
     .port-1-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -529,6 +571,20 @@ p, ul, li {
     p, ul, li {
         font-size  : 14px;
     }
+
+    .page-section {
+        padding: 100px 0 60px;
+    }
+
+    .page-container{
+        padding: 0 16px;
+    }
+
+    .page-header {
+        font-size: 40px;
+        margin-bottom: 28px;
+    }
+
     /* ------------------------------------------------   HOME-1-SECTION  */ 
     .home-1-section {
         align-items: flex-end;
@@ -585,18 +641,7 @@ p, ul, li {
     }
 
     /* ------------------------------------------------   PORTFOLIO  */
-    .port-1-section {
-        padding: 100px 0 60px;
-    }
 
-    .port-1-container {
-        padding: 0 16px;
-    }
-
-    .port-1-header {
-        font-size: 40px;
-        margin-bottom: 28px;
-    }
 
     .port-1-grid {
         grid-template-columns: 1fr;

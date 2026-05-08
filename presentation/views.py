@@ -1,6 +1,10 @@
+# VIEWS.PY 
 from django.shortcuts import render
+from django.contrib import messages
 
 def home(request):
+    print("HOME VIEW KÖRS")
+    messages.warning(request, "Hemsidan är under arbete.")
     return render(request, "home.html")
 
 def contact(request):
@@ -10,10 +14,10 @@ def about(request):
     return render(request, "about.html")
 
 def erfarenhet(request):
-    return render(request, "erfarenhet")
+    return render(request, "erfarenhet.html")
 
 def utbildning(request):
-    return render(request, "utbildning")
+    return render(request, "utbildning.html")
 
 def portfolio(request):
     return render(request, "portfolio.html")
