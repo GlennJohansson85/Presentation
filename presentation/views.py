@@ -4,7 +4,7 @@ from django.contrib import messages
 
 def home(request):
     print("HOME VIEW KÖRS")
-    messages.warning(request, "Hemsidan är under arbete.")
+    messages.warning(request, "Uppdatering pågår.")
     return render(request, "home.html")
 
 def contact(request):
