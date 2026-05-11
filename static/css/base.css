@@ -117,7 +117,7 @@ li {
     pointer-events: none;
     mix-blend-mode: multiply;
     filter        : invert(1);
-    opacity       : 0.4;
+    opacity       : 0.7;
 }
 
 .home-overlay::after {
@@ -159,7 +159,10 @@ li {
     line-height   : 0.92;
     letter-spacing: -0.06em;
     color         : #000;
-    text-shadow   : -2px 4px 9px #77776f;
+    text-shadow   :
+        -2px 4px 9px #77776f,
+        0 -1px 0 #beb9b9, 
+        0 1px 0 #beb9b9; 
 }
 
 .home-1-subheader {
