@@ -3,8 +3,11 @@ from django.shortcuts import render
 from django.contrib import messages
 
 def home(request):
-    print("HOME VIEW KÖRS")
-    messages.warning(request, "Uppdatering pågår.")
+    if not request.session.get("home_visited"):
+        print("HOME VIEW KÖRS")
+        messages.warning(request, "Uppdatering pågår.")
+        request.session["home_visited"] = True
+
     return render(request, "home.html")
 
 def contact(request):
