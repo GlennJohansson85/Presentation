@@ -1,15 +1,19 @@
+
 import os
 from pathlib import Path
 if os.path.isfile('env.py'):
     import env
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# SECURITY
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
-
-DEBUG = False
+BASE_DIR             = Path(__file__).resolve().parent.parent
+SECRET_KEY           = os.environ.get('SECRET_KEY', '')
+ROOT_URLCONF         = 'presentation.urls'
+WSGI_APPLICATION     = 'presentation.wsgi.application'
+DEBUG                = True
+LANGUAGE_CODE        = 'en-us'
+TIME_ZONE            = 'UTC'
+USE_I18N             = True
+USE_TZ               = True
+CSRF_TRUSTED_ORIGINS = ['https://presentation-28tx.onrender.com/']
 
 ALLOWED_HOSTS = [
     'presentation-28tx.onrender.com',
@@ -17,12 +21,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://presentation-28tx.onrender.com/'
-]
-
-
-# APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,11 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_browser_reload",
     'gunicorn',
 ]
 
-
-# MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -44,15 +41,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
-
-# URLS / WSGI
-ROOT_URLCONF     = 'presentation.urls'
-WSGI_APPLICATION = 'presentation.wsgi:application'
-
-
-# TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,48 +61,35 @@ TEMPLATES = [
     },
 ]
 
+import dj_database_url
 
-# DATABASE
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME'  : BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
-
-# PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
-
-
-# INTERNATIONALIZATION
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE     = 'UTC'
-USE_I18N      = True
-USE_TZ        = True
-
-
-# STATIC FILES (WHITE NOISE)
+# Static files settings for local development
 STATIC_URL       = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT      = os.path.join(BASE_DIR, 'staticfiles')
 
-
+# Disable caching of static files in development (important for CSS changes)
 WHITENOISE_MAX_AGE = 0  # Set to 0 during development to avoid caching
 
-
-# MEDIA (Cloudinary)
+# Cloudinary will handle the media
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
+# Media files (Cloudinary)
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'API_KEY'   : os.environ.get('CLOUDINARY_API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
-
