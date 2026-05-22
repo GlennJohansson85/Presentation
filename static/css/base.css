@@ -439,16 +439,15 @@ li {
 
 /* ==========================================================================   INTEGRITETSPOLICY.HTML  */
 .policy-article {
-    display        : flex;
-    flex-direction : column;
-    justify-content: center;
-    max-width      : 1000px;
-    width          : 100%;
-    min-height     : 800px;
-    margin         : 0 auto;
-    padding        : clamp(20px, 4vw, 80px);
-    padding-top    : calc(clamp(20px, 4vw, 40px) + 64px);
-    /* mer plats för rutan */
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    max-width       : 1000px;
+    width           : 100%;
+    min-height      : 800px;
+    margin          : 0 auto;
+    padding         : clamp(20px, 4vw, 80px);
+    padding-top     : calc(clamp(20px, 4vw, 40px) + 64px);
     position        : relative;
     z-index         : 2;
     overflow        : hidden;
