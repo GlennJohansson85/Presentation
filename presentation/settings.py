@@ -13,12 +13,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    'presentation.onrender.com',
+    'presentation-28tx.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://presentation.onrender.com/']
+CSRF_TRUSTED_ORIGINS = [
+    'https://presentation-28tx.onrender.com'
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -63,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION     = 'presentation.wsgi.application'
+WSGI_APPLICATION = 'presentation.wsgi.application'
 
 DATABASES = {
     'default': {
