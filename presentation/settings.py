@@ -1,5 +1,6 @@
 
 import os
+import dj_database_url
 from pathlib import Path
 if os.path.isfile('env.py'):
     import env
@@ -60,11 +61,13 @@ TEMPLATES = [
         },
     },
 ]
+
+# DATABASE (Render / Supabase / Postgres)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME'  : BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -73,6 +76,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
 # Static files settings for local development
 STATIC_URL       = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
