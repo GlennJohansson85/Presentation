@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'presentation-28tx.onrender.com',
@@ -20,7 +20,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://presentation-28tx.onrender.com'
+    'https://presentation-28tx.onrender.com/'
 ]
 
 
@@ -32,14 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gunicorn',
 ]
-
-
-# DEV ONLY APPS
-if DEBUG:
-    INSTALLED_APPS += [
-        "django_browser_reload",
-    ]
 
 
 # MIDDLEWARE
@@ -109,9 +103,8 @@ STATIC_URL       = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT      = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-WHITENOISE_MAX_AGE = 31536000  # 1 year cache (production speed)
+# Disable caching of static files in development (important for CSS changes)
+WHITENOISE_MAX_AGE = 0  # Set to 0 during development to avoid caching
 
 
 # MEDIA (Cloudinary)
