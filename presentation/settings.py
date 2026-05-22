@@ -1,7 +1,5 @@
 import os
 from pathlib import Path
-
-# IMPORT KEYS FROM ENV.PY
 if os.path.isfile('env.py'):
     import env
 
@@ -51,7 +49,7 @@ MIDDLEWARE = [
 
 # URLS / WSGI
 ROOT_URLCONF     = 'presentation.urls'
-WSGI_APPLICATION = 'presentation.wsgi.application'
+WSGI_APPLICATION = 'presentation.wsgi'
 
 
 # TEMPLATES
