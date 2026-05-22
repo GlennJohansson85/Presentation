@@ -245,7 +245,6 @@ li {
     mix-blend-mode : multiply;
     filter         : invert(1);
     opacity        : 0.5;
-    */
 }
 
 .port-grid {
@@ -429,10 +428,6 @@ li {
     border-radius: 12px;
     background-color: #FFF;
     padding: 40px;
-}
-
-.about-img-container {
-
 }
 
 .flum-img {
