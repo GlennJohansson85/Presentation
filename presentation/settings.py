@@ -1,13 +1,13 @@
 import os
 from pathlib import Path
 
-# Local env file (optional for local development)
+# IMPORT KEYS FROM ENV.PY
 if os.path.isfile('env.py'):
     import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security
+# SECURITY
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
@@ -22,7 +22,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://presentation-28tx.onrender.com'
 ]
 
-# Application definition
+# APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,9 +30,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_browser_reload",
 ]
 
+# DEV ONLY APPS
+if DEBUG:
+    INSTALLED_APPS += [
+        "django_browser_reload",
+    ]
+
+
+# MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -45,8 +52,13 @@ MIDDLEWARE = [
     'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
-ROOT_URLCONF = 'presentation.urls'
 
+# URLS / WSGI
+ROOT_URLCONF = 'presentation.urls'
+WSGI_APPLICATION = 'presentation.wsgi.application'
+
+
+# TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -64,8 +76,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'presentation.wsgi.application'
 
+# DATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -74,6 +86,7 @@ DATABASES = {
 }
 
 
+# PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},

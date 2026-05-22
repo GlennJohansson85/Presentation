@@ -1,1 +1,1 @@
-web: gunicorn presentation.wsgi:application
+web: gunicorn presentation.wsgi:application --workers 2 --threads 2 --timeout 120
