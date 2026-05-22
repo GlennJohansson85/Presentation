@@ -1,26 +1,26 @@
 import os
 from pathlib import Path
+
+# Local env file (optional for local development)
 if os.path.isfile('env.py'):
     import env
 
-BASE_DIR             = Path(__file__).resolve().parent.parent
-SECRET_KEY           = os.environ.get('SECRET_KEY', '')
-ROOT_URLCONF         = 'presentation.urls'
-WSGI_APPLICATION     = 'presentation.wsgi.application'
-DEBUG                = True
-LANGUAGE_CODE        = 'en-us'
-TIME_ZONE            = 'UTC'
-USE_I18N             = True
-USE_TZ               = True
-CSRF_TRUSTED_ORIGINS = ['https://pre-790f9f701073.herokuapp.com/']
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Security
+SECRET_KEY           = os.environ.get('SECRET_KEY', '')
+
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    'pre-790f9f701073.herokuapp.com',
+    'presentation.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://presentation.onrender.com/']
+
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +44,8 @@ MIDDLEWARE = [
     'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
+ROOT_URLCONF = 'presentation.urls'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -61,6 +63,8 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION     = 'presentation.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,6 +79,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+# Internationalization
+LANGUAGE_CODE        = 'en-us'
+TIME_ZONE            = 'UTC'
+USE_I18N             = True
+USE_TZ               = True
 
 # Static files settings for local development
 STATIC_URL       = '/static/'
