@@ -7,6 +7,7 @@ if os.path.isfile('env.py'):
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # SECURITY
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
@@ -22,6 +23,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://presentation-28tx.onrender.com'
 ]
 
+
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 
 # DEV ONLY APPS
 if DEBUG:
@@ -49,12 +52,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
 
 # URLS / WSGI
-ROOT_URLCONF = 'presentation.urls'
+ROOT_URLCONF     = 'presentation.urls'
 WSGI_APPLICATION = 'presentation.wsgi.application'
 
 
@@ -94,26 +96,28 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+
+# INTERNATIONALIZATION
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE     = 'UTC'
 USE_I18N      = True
 USE_TZ        = True
 
-# Static files settings for local development
-STATIC_URL          = '/static/'
-STATICFILES_DIRS    = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT         = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATIC FILES (WHITE NOISE)
+STATIC_URL       = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT      = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Disable caching of static files in development (important for CSS changes)
-WHITENOISE_MAX_AGE = 0  # Set to 0 during development to avoid caching
+WHITENOISE_MAX_AGE = 31536000  # 1 year cache (production speed)
 
-# Cloudinary will handle the media
+
+# MEDIA (Cloudinary)
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
-# Media files (Cloudinary)
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'API_KEY'   : os.environ.get('CLOUDINARY_API_KEY'),
