@@ -31,10 +31,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_browser_reload",
 ]
-
 if not DEBUG:
     INSTALLED_APPS += [
         'gunicorn',
+
     ]
 
 MIDDLEWARE = [
@@ -61,21 +61,31 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'accounts.context_processors.profile_context',
             ],
         },
     },
 ]
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
+#key = os.environ.get("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY")
 
 # DATABASE (Render / Supabase / Postgres)
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True,
-    )
-}
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+else:
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.environ.get("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True,
+        )
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
