@@ -74,6 +74,7 @@ if DEBUG:
         'django_browser_reload.middleware.BrowserReloadMiddleware',
     ]
 
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 # -------------------
 # URLS
