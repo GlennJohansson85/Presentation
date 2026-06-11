@@ -4,16 +4,16 @@ html {
 }
 
 body {
-    display         : flex;
-    flex-direction  : column;
-    min-height      : 100vh;
-    margin          : 0;
-    padding         : 0;
-    background-color: #d9d8cc;
+    display       : flex;
+    flex-direction: column;
+    min-height    : 100vh;
+    margin        : 0;
+    padding       : 0;
+    background   : #ca806c; /* samma som body */
 }
 
+
 main {
-    flex  : 1;
     width : 100%;
     margin: 0 auto;
 }
@@ -44,12 +44,12 @@ li {
 }
 
 .outline {
+    max-width    : 1000px;
     margin       : 0 auto;
     padding      : 40px;
-    max-width    : 1000px;
-    border       : 8px solid #000;
+    border       : 8px solid #fff3d6;
     border-radius: 12px;
-    box-shadow   : 0 4px 12px #7a7a72;
+    
 }
 
 .page-header {
@@ -58,8 +58,8 @@ li {
     font-family   : "Jost-900-Black";
     font-size     : 72px;
     letter-spacing: 0.4px;
-    color         : #000;
-    text-shadow   : -2px 2px 4px #9e9e94;
+    color         : #fff3d6;
+    text-shadow   : 2px 2px 0 rgba(0, 0, 0, 0.753);
 }
 
 
@@ -93,43 +93,31 @@ li {
     background-color: green;
 }
 
-/* ==========================================================================   :ROOT (VARS) */
-:root {
-    --sand        : #d9d8cc;
-    --sand-overlay: rgba(217, 216, 204, 0.79);
+/* ==========================================================================   HOME GLOBAL */
+/* Tar bort scroll från home.html */
+.home-page {
+    overflow: hidden;
 }
 
-/* ==========================================================================   HOME GLOBAL */
 /* Utgångspunkt för overlay */
 .home-overlay {
     position  : relative;
     min-height: 100svh;
     overflow  : hidden;
+    background: #ddaea0; /* samma som body */
 }
 
-/* ---------------------  VIDEO */
+/* VIDEO */
 .home-video {
     position      : absolute;
-    width         : 100vh;
-    height        : 100vw;
-    top           : 50%;
-    left          : 50%;
+    inset         : 0;
+    width         : 100%;
+    height        : 100%;
     object-fit    : cover;
-    z-index       : 2;
+    z-index       : 1;
     pointer-events: none;
+    opacity       : 0.7; /* sänk denna om färgen ska synas mer */
     mix-blend-mode: multiply;
-    filter        : invert(1);
-    opacity       : 0.3;
-    transform     : translate(-50%, -50%) rotate(90deg);
-}
-
-.home-overlay::after {
-    content         : "";
-    position        : absolute;
-    inset           : 0;
-    background-color: var(--sand-overlay);
-    pointer-events  : none;
-    z-index         : 1;
 }
 
 .home-1-section,
@@ -140,12 +128,12 @@ li {
 }
 
 .home-1-section {
-    position   : relative;
-    min-height : 100svh;
+    height     : calc(100svh - 70px);
     display    : flex;
     align-items: center;
     padding    : clamp(96px, 12vw, 160px) 24px 56px;
     overflow   : hidden;
+    box-sizing : border-box;
 }
 
 .home-1-container {
@@ -155,17 +143,18 @@ li {
     margin  : 0 auto;
 }
 
+/* HEADER */
 .home-1-header {
     margin        : 0;
     font-family   : "Jost-900-Black", sans-serif;
-    font-size     : clamp(56px, 9vw, 120px);
+    font-size     : clamp(56px, 9vw, 86px);
     line-height   : 0.92;
-    letter-spacing: -0.06em;
-    color         : #000;
-    text-shadow   :
-        -2px 4px 9px #77776f,
-        0 -1px 0 #beb9b9, 
-        0 1px 0 #beb9b9; 
+    letter-spacing: -0.04em;
+    position      : relative;
+    z-index       : 3;
+    transform     : translateZ(0);
+    color         : #fff3d6;
+    text-shadow   : 2px 2px 0 rgba(0, 0, 0, 0.753);
 }
 
 .home-1-subheader {
@@ -174,9 +163,10 @@ li {
     font-size  : clamp(36px, 2.5vw, 34px);
     font-family: "Jost-700-Bold", sans-serif;
     line-height: 1.3;
-    color      : #000;
-    text-shadow: -2px 3px 4px #77776f;
+    color      : #fff3d6;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.753);
 }
+
 
 
 
@@ -188,21 +178,25 @@ li {
 }
 
 .card-body {
-    max-width: 900px;
+    max-width: 1000px;
 } 
 
+.contact-card {
+    margin-right: 5px;
+}
+
 .contact-text {
-    margin-top      : 10px;
+    margin          : 10px;
     padding         : 10px;
     height          : 100px;
-    background-color: #cccbb875;
+    background-color: #fff3d6;
     border-radius   : 4px;
-    border: 3px inset #cccbb875;
+    border: none;
 }
 
 
 .label {
-    color: #1c1c1c;
+    color      : #1c1c1c;
     font-family: "Jost-500-Medium";
     font-size  : 28px;
 }
@@ -225,8 +219,7 @@ li {
     background-position   : 0 100%;
     -webkit-font-smoothing: antialiased;
     text-rendering        : optimizeLegibility;
-    transition            : color 0.35s ease,
-                         background-size 0.35s ease;
+    transition            : color 0.35s ease, background-size 0.35s ease;
 }
 
 .link:hover,
@@ -261,12 +254,12 @@ li {
     display       : flex;
     flex-direction: column;
     height        : 100%;
-    background-color: #cccbb875;
+    background-color: #fff3d6;
     border-radius   : 4px;
-    border: 3px inset #cccbb875;
     overflow      : hidden;
     position      : relative;
     z-index       : 2;
+    box-shadow   : 2px 2px 0 rgba(0, 0, 0, 0.753);
 }
 
 /* --------------------------- PORT-VIDEO */
@@ -434,9 +427,69 @@ li {
 }
 
 .flum-img {
-    max-width: 100%; 
-    height: auto;
+    max-width: 100%;
+    height   : auto;
+}
 
+/* ==========================================================================   ERFARENHET.HTML  */
+.exp-container {
+    margin-top      : 20px;
+    max-width       : 1000px;
+    width           : 100%;
+    margin-left     : auto;
+    margin-right    : auto;
+    background-color: #fff3d6;
+    padding         : 20px;
+    border-radius   : 12px;
+    box-shadow   : 2px 2px 0 rgba(0, 0, 0, 0.753);
+}
+
+/* BOOTSTRAP OVERRIDES */
+.row {
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+/* BOOTSTRAP OVERRIDES */
+.row > [class^="col-"] {
+    padding-left : 0;
+    padding-right: 0;
+}
+
+.exp-year {
+    font-family    : "Jost-800-Heavy";
+    font-size      : 26px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+}
+
+.exp-title {
+    font-family  : "Jost-700-Bold";
+    font-size    : 24px;
+    margin-bottom: 6px;
+}
+
+.exp-company,
+.exp-project {
+    font-family  : "Jost-500-Medium";
+    margin-bottom: 0;
+
+}
+
+
+.exp-project {
+    font-family  : "Jost-500-Medium-Italic";
+    margin-bottom: 0;
+
+}
+
+.exp-text {
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    font-family  : "Jost-300-Light";
+    font-size: 18px;
 
 }
 
@@ -550,6 +603,34 @@ li {
     .policy-ul {
         font-size: 14px;
     }
+
+    /* ------------------------------------------------   EXPERIENCE */
+    .exp-year {
+        font-family: "Jost-800-Heavy";
+        font-size: 22px;
+
+    }
+
+    .exp-title {
+        font-family  : "Jost-700-Bold";
+        font-size: 24px;
+
+    }
+
+    .exp-company {
+        font-family  : "Jost-500-Medium";
+        font-size: 18px;
+    }
+
+    .exp-project {
+        font-family  : "Jost-500-Medium-Italic";
+        font-size: 18px;
+    }
+
+    .exp-text {
+        font-family  : "Jost-300-Light";
+        font-size: 16px;
+    }
 }
 
 /* ==========================================================================   MOBILE  */
@@ -583,10 +664,12 @@ li {
 
     .home-1-header {
         font-size: clamp(42px, 14vw, 68px);
+        text-shadow   : 1px 1px 0 rgba(0, 0, 0, 0.877);
     }
 
     .home-1-subheader {
         font-size: clamp(18px, 5vw, 24px);
+        text-shadow   : 1px 1px 0 rgba(0, 0, 0, 0.877);
     }
 
     /* ------------------------------------------------   HOME-2-SECTION  */
@@ -704,6 +787,7 @@ li {
         padding-top: 40px;
         padding-left: 10px;
         padding-right: 10px;
+        
     }
 
     .text,
@@ -712,4 +796,46 @@ li {
         text-decoration: none;
     }
 
+    /* ------------------------------------------------   EXPERIENCE */
+    .exp-year {
+        font-family: "Jost-600-Semi";
+        font-size: 18px;
+    }
+
+    .exp-title {
+        font-family: "Jost-600-Semi";
+        font-size: 20px;
+    }
+
+    /* ONLY THIS CONTROLS STACKING */
+    .exp-company-row {
+        flex-direction: column !important;
+        align-items: flex-start;
+    }
+
+    .exp-company-row .col-4,
+    .exp-company-row .col-8 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .exp-company {
+        font-family: "Jost-500-Medium";
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+
+    .exp-project {
+        font-family: "Jost-500-Medium-Italic";
+        font-size: 16px;
+    }
+
+
+    .exp-text {
+        font-family: "Jost-300-Light";
+        font-size: 16px;
+        padding-right: 15px;
+    }
 }

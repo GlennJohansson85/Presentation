@@ -2,7 +2,7 @@
 .navbar {
     z-index         : 4;
     width           : 100%;
-    height          : 70px;
+    height          : 60px;
     position        : fixed;
     top             : 0;
     padding         : 12px 20px;
@@ -38,7 +38,7 @@
 
 /* Yttre flex-container som positionerar hela menyblocket i navbaren. */
 .navbar-collapse {
-    max-height      : 70px;
+    max-height      : 60px;
     width           : 100%;
     display         : flex;
     justify-content : center;
@@ -56,12 +56,13 @@
 .nav-link {
     display               : inline-block;
     padding               : 8px 16px;
-    font-family           : "Jost-300-light";
+    font-family           : 'Jost-300-Light';
     font-size             : 28px;
     cursor                : pointer;
     text-decoration       : none;
-    color                 : #000;
-    background-image      : linear-gradient(#282828, #282828);
+    color                 : #fff3d6;
+    text-shadow           : 1px 1px 1px rgb(0, 0, 0);
+    background-image      : linear-gradient(#fff3d6, #fff3d6);
     background-repeat     : no-repeat;
     background-size       : 0% 1px;
     background-position   : 0 100%;
@@ -70,11 +71,11 @@
     transition            : color 0.35s ease, background-size 0.35s ease;
 }
 
-/* Hover/focus-effekt för nav-länkar (underline animation) */
+/* Hover/focus-effekt för nav-länkar*/
 .nav-link:hover,
 .nav-link:focus {
     background-size: 100% 1px;
-    color          : #000;
+    color          : #fff3d6;
 }
 
 
@@ -97,7 +98,7 @@
 /* Scroll/open =  link color change */
 .navbar.scrolled .nav-link,
 .navbar.navbar--open .nav-link {
-    color           : #f8f7e9;
+    color           : #fff3d6;
     background-image: linear-gradient(#f1f0e2, #f1f0e2);
 }
 
@@ -137,8 +138,7 @@
     transform       : translateX(-50%) translateY(0px);
     z-index         : 9999;
     min-width       : 220px;
-    background-color: #f6f6f6;
-    box-shadow      : 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff3d6;
     opacity         : 0;
     visibility      : hidden;
     pointer-events  : none;
@@ -200,7 +200,7 @@
 .navbar-toggler-icon .bar {
     width           : 100%;
     height          : 2px;
-    background-color: #282828;
+    background-color: #fff3d6;
     transition      : transform 0.3s ease, opacity 0.2s ease;
     transform-origin: center;
 }
@@ -232,11 +232,11 @@
     }
 
     .nav-link {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .navbar-nav {
-        gap: 20px;
+        gap: 10px;
     }
 
     .navbar.navbar--open:not(.scrolled) {
@@ -302,10 +302,13 @@
     }
 
     .nav-link {
-        font-size  : 16px;
+        font-size  : 22px;
         height     : auto;
         line-height: normal;
     }
+
+
+
 
     .navbar-toggler {
         position : absolute;
@@ -320,8 +323,8 @@
         top             : 0;
         left            : 0;
         right           : 0;
-        height          : 50px;
-        max-height      : 50px;
+        height          : 60px;
+        max-height      : 60px;
         z-index         : 10000;
         display         : flex;
         align-items     : center;

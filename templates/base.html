@@ -21,7 +21,8 @@
     {% block extra_css %}{% endblock %}
 
 </head>
-<body>
+            <!-- Tar bort scroll från home.html -->
+<body class="{% block body_class %}{% endblock %}">
 
     <!-- Alert messages -->
     {% if messages %}

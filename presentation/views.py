@@ -16,11 +16,11 @@ def contact(request):
 def about(request):
     return render(request, "about.html")
 
-def erfarenhet(request):
-    return render(request, "erfarenhet.html")
+def experience(request):
+    return render(request, "experience.html")
 
-def utbildning(request):
-    return render(request, "utbildning.html")
+def education(request):
+    return render(request, "education.html")
 
 def portfolio(request):
     return render(request, "portfolio.html")

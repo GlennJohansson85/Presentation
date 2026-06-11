@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block body_class %}home-page{% endblock %}
+
 {% block title %} Hem {% endblock %}
 
 {% block content %}
-    <main>
-        <div class="home-overlay">
-            <video class="home-video" autoplay muted loop poster="{% static 'img/video-poster.jpg' %}">
-                <source src="{% static 'video/smoke-1.mp4' %}" type="video/mp4">
-            </video>
-            <!-- 1 SECTION -->
-            <section class="home-1-section">
-                <div class="home-1-container">
-                    <h1 class="home-1-header">Glenn Johansson</h1>
-                    <p class="home-1-subheader">Erfaren IT- & Verksamhetsutvecklare</p>
-                </div>
-            </section>
-        </div>
-        
-    </main>
+<main>
+    
+    <!-- VIDEO -->
+    <div class="home-overlay">
+        <video class="home-video" autoplay muted loop poster="{% static 'img/video-poster.jpg' %}">
+            <source src="{% static 'video/ra-s.mp4' %}" type="video/mp4">
+        </video>
 
+        <!-- 1 SECTION -->
+        <section class="home-1-section">
+            <div class="home-1-container">
+                <h1 class="home-1-header">Glenn Johansson</h1>
+                <p class="home-1-subheader">Erfaren IT- & Verksamhetsutvecklare</p>
+            </div>
+        </section>
+    </div>
+</main>
 {% endblock %}
