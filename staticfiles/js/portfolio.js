@@ -131,7 +131,7 @@
         stopVideo();
     }
 
-    document.querySelectorAll(".port-img, .port-thumb").forEach(function (item) {
+    document.querySelectorAll(".port-img, .port-thumb, .exp-thumb").forEach(function (item) {
         item.addEventListener("click", function (e) {
             e.stopPropagation();
 

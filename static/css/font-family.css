@@ -37,3 +37,21 @@
     font-weight: 900;
     font-style: normal;
 }
+
+/* HelveticaNeueLTPro-Th */
+@font-face {
+    font-family: "HelveticaNeueLTPro-Th";
+    src: url("/static/font-family/HelveticaNeueLTPro-Th.otf") format("opentype");
+}
+
+/* Helvetica */
+@font-face {
+    font-family: "Helvetica";
+    src: url("/static/font-family/Helvetica.otf") format("opentype");
+}
+
+/* HelveticaBQ-Light */
+@font-face {
+    font-family: "HelveticaBQ-Light";
+    src: url("/static/font-family/HelveticaBQ-Light.otf") format("opentype");
+}

@@ -7,8 +7,6 @@ body {
     display       : flex;
     flex-direction: column;
     min-height    : 100vh;
-    margin        : 0;
-    padding       : 0;
     background-color: #020a09;
 }
 
@@ -49,9 +47,7 @@ li {
     font-size     : 72px;
     letter-spacing: 0.4px;
     color         : #fff;
-    text-shadow   : 
-    0 0 4px rgba(255, 253, 236, 0.4),
-    0 0 15px rgba(0, 168, 150, 0.3);
+    text-shadow:1px 1px 1px #000;
 }
 
 /* ==========================================================================   HOME GLOBAL */
@@ -182,15 +178,15 @@ li {
     font-family: "next-bold";
     font-size  : 28px;
     color      : #fff;
+    text-shadow:1px 1px 1px #000;
 }
 
 .port-card-text {
     margin     : 0;
-    font-family:"Helvetica";
-    font-size  : 22px;
-    line-height: 1.7;
+    font-family: "HelveticaBQ-Light";
+    font-size  : 20px;
     color      : #fff;
-
+    text-shadow:1px 1px 1px #000;
 }
 
 /* --------------------------- LIGHTBOX */
@@ -269,7 +265,6 @@ li {
     }
 
     .page-header {
-        font-size: 56px;
         margin-bottom: 36px;
     }
 
@@ -321,8 +316,8 @@ li {
     }
 
     .page-header {
-        font-size    : 40px;
-        margin-bottom: 28px;
+        font-size: 68px;
+
     }
 
     /* ------------------------------------------------   PORTFOLIO  */
