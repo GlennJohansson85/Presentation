@@ -1,0 +1,359 @@
+/* ==========================================================================   GLOBAL */
+html {
+    height: 100%;
+}
+
+body {
+    display       : flex;
+    flex-direction: column;
+    min-height    : 100vh;
+    margin        : 0;
+    padding       : 0;
+    background-color: #020a09;
+}
+
+main {
+    width : 100%;
+    margin: 0 auto;
+}
+
+ul,
+li {
+    font-family: "Jost-300-light";
+    font-size  : 17px;
+    color      : #282828;
+}
+
+.page-section {
+    position  : relative;
+    min-height: 100vh;
+    margin    : 0;
+    padding   : 120px 0 80px;
+    overflow  : hidden;
+}
+
+.page-container {
+    position : relative;
+    z-index  : 2;
+    width    : 100%;
+    max-width: 2000px;
+    margin   : 0 auto;
+    padding  : 0 24px;
+}
+
+
+.page-header {
+    margin        : 0 0 48px;
+    text-align    : center;
+    font-family   : "next-bold";
+    font-size     : 72px;
+    letter-spacing: 0.4px;
+    color         : #fff;
+    text-shadow   : 
+    0 0 4px rgba(255, 253, 236, 0.4),
+    0 0 15px rgba(0, 168, 150, 0.3);
+}
+
+/* ==========================================================================   HOME GLOBAL */
+
+
+/* Utgångspunkt för overlay */
+.home-overlay {
+    position  : relative;
+    min-height: 100svh;
+    overflow  : hidden;
+
+}
+
+/* VIDEO */
+.home-video {
+    position      : absolute;
+    inset         : 0;
+    width         : 100%;
+    height        : 100%;
+    object-fit    : cover;
+    z-index       : 1;
+    pointer-events: none;
+    opacity       : 0.8;
+    filter        : brightness(0.4) contrast(1.2);
+}
+
+
+
+/* ==========================================================================   PORTFOLIO.HTML */
+.port-grid {
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 28px;
+    margin               : 0 auto;
+}
+
+.port-col {
+    display         : flex;
+    flex-direction  : column;
+    height          : 100%;
+    background-color: #0000007e;
+    border-radius   : 20px;
+    overflow        : hidden;
+    position        : relative;
+    z-index         : 2;
+    box-shadow      : 1px 1px 12px #fafafa3b;
+}
+
+/* --------------------------- PORT-VIDEO */
+.port-thumb-video {
+    position     : relative;
+    padding      : 0;
+    overflow     : hidden;
+    border       : 2px solid #414040;
+    border-radius: 4px;
+    cursor       : pointer;
+}
+
+.port-thumb-video img {
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+    display   : block;
+}
+
+.play-icon {
+    position      : absolute;
+    inset         : 0;
+    display       : grid;
+    place-items   : center;
+    font-size     : 28px;
+    color         : #fffdec;
+    background    : rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+}
+
+/* --------------------------- PORT-IMG */
+.port-img {
+    width           : 100%;
+    height          : 280px;
+    object-fit      : contain;
+    display         : block;
+    padding         : 18px;
+    cursor          : zoom-in;
+    transition      : transform 0.25s ease;
+
+
+}
+
+.port-img:hover {
+    transform: scale(1.02);
+}
+
+/* --------------------------- PORT-THUMB */
+.port-thumbs {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: center;
+    gap            : 10px;
+    padding        : 0 18px 18px;
+}
+
+.port-thumb {
+    width           : 86px;
+    height          : 86px;
+    object-fit      : cover;
+    display         : block;
+    border          : 1px solid #fffdec;
+    border-radius   : 4px;
+    cursor          : pointer;
+    transition      : transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.port-thumb:hover {
+    transform : translateY(-2px) scale(1.05);
+    box-shadow: 0 2px 12px #4140405b;
+}
+
+/* --------------------------- PORT-CARD */
+.port-card-body {
+    padding   : 18px 20px 22px;
+    border-top: none;
+}
+
+.port-card-title {
+    margin     : 0 0 10px;
+    text-align : center;
+    font-family: "next-bold";
+    font-size  : 28px;
+    color      : #fff;
+}
+
+.port-card-text {
+    margin     : 0;
+    font-family:"Helvetica";
+    font-size  : 22px;
+    line-height: 1.7;
+    color      : #fff;
+
+}
+
+/* --------------------------- LIGHTBOX */
+.img-lightbox {
+    position  : fixed;
+    inset     : 0;
+    display   : none;
+    background: rgba(0, 0, 0, 0.92);
+    z-index   : 9999;
+}
+
+.img-lightbox.open {
+    display: block;
+}
+
+.img-lightbox-stage {
+    position   : absolute;
+    inset      : 30px;
+    overflow   : auto;
+    display    : grid;
+    place-items: center;
+}
+
+.img-lightbox img {
+    display      : block;
+    max-width    : 92vw;
+    max-height   : 92vh;
+    width        : auto;
+    height       : auto;
+    object-fit   : contain;
+    border-radius: 6px;
+    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
+    cursor       : zoom-in;
+}
+
+.img-lightbox.zoomed img {
+    max-width : none;
+    max-height: none;
+    cursor    : zoom-out;
+}
+
+.img-lightbox-close {
+    position   : absolute;
+    top        : 20px;
+    right      : 28px;
+    background : transparent;
+    border     : none;
+    color      : #fff;
+    font-size  : 48px;
+    line-height: 1;
+    cursor     : pointer;
+    z-index    : 10000;
+}
+
+#lightboxVideo {
+    display      : none;
+    max-width    : 92vw;
+    max-height   : 92vh;
+    width        : auto;
+    height       : auto;
+    border-radius: 6px;
+    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
+    background   : #000;
+}
+
+/* ==========================================================================   TABLET  */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    /* ------------------------------------------------   GLOBAL */
+    .page-section {
+        padding: 110px 0 70px;
+    }
+
+    .page-container {
+        padding: 0 20px;
+    }
+
+    .page-header {
+        font-size: 56px;
+        margin-bottom: 36px;
+    }
+
+    /* ------------------------------------------------   PORTFOLIO  */
+
+
+    .port-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap                  : 22px;
+    }
+
+    .port-img {
+        height : 240px;
+        padding: 16px;
+    }
+
+    .port-thumbs {
+        gap    : 8px;
+        padding: 0 16px 16px;
+    }
+
+    .port-thumb {
+        width : 64px;
+        height: 64px;
+    }
+
+    .port-card-body {
+        padding: 16px 18px 20px;
+    }
+
+}
+
+/* ==========================================================================   MOBILE  */
+@media (max-width: 767.98px) {
+
+    /* ------------------------------------------------   GLOBAL  */
+    p,
+    ul,
+    li {
+        font-size: 16px;
+    }
+
+    .page-section {
+        padding: 100px 0 60px;
+    }
+
+    .page-container {
+        padding: 0 16px;
+    }
+
+    .page-header {
+        font-size    : 40px;
+        margin-bottom: 28px;
+    }
+
+    /* ------------------------------------------------   PORTFOLIO  */
+
+
+    .port-grid {
+        grid-template-columns: 1fr;
+        gap                  : 20px;
+    }
+
+    .port-img {
+        height : 220px;
+        padding: 14px;
+    }
+
+    .port-thumbs {
+        gap    : 8px;
+        padding: 0 14px 14px;
+    }
+
+    .port-thumb {
+        width : 58px;
+        height: 58px;
+    }
+
+    .port-card-body {
+        padding: 16px 16px 20px;
+    }
+
+    .port-card-title {
+        font-size: 22px;
+    }
+
+}

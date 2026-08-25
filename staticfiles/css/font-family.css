@@ -1,0 +1,74 @@
+/* JOST */
+@font-face {
+    font-family: 'Jost-100-Hairline';
+    src: url('/static/font-family/Jost-100-Hairline.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-100-Hairline-Italic';
+    src: url('/static/font-family/Jost-100-Hairline-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-200-Thin';
+    src: url('/static/font-family/Jost-200-Thin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-200-Thin-Italic';
+    src: url('/static/font-family/Jost-200-Thin-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-300-Light';
+    src: url('/static/font-family/Jost-300-Light.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-300-Light-Italic';
+    src: url('/static/font-family/Jost-300-Light-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-400-Book';
+    src: url('/static/font-family/Jost-400-Book.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-400-Book-Italic';
+    src: url('/static/font-family/Jost-400-Book-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-500-Medium';
+    src: url('/static/font-family/Jost-500-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-500-Medium-Italic';
+    src: url('/static/font-family/Jost-500-Medium-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-600-Semi';
+    src: url('/static/font-family/Jost-600-Semi.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-600-Semi-Italic';
+    src: url('/static/font-family/Jost-600-Semi-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-700-Bold';
+    src: url('/static/font-family/Jost-700-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-700-Bold-Italic';
+    src: url('/static/font-family/Jost-700-Bold-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-800-Heavy';
+    src: url('/static/font-family/Jost-800-Heavy.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-800-Heavy-Italic';
+    src: url('/static/font-family/Jost-800-Heavy-Italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Jost-900-Black';
+    src: url('/static/font-family/Jost-900-Black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Jost-900-Black-Italic';
+    src: url('/static/font-family/Jost-900-Black-Italic.woff2') format('woff2');
+}
