@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block body_class %}Glenns portfolio{% endblock %}
+{% block title %} Portfölj - Glenn Johansson {% endblock %}
 
-{% block title %} Hem {% endblock %}
+{% block extra_css %}
+<!-- Länka till din CSS-fil här -->
+<link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+{% endblock %}
 
 {% block content %}
-<main>
-   
 <div class="home-overlay">
     <video class="home-video" autoplay muted loop poster="{% static 'img/video-poster.jpg' %}">
-        <source src="{% static 'video/ddd.mp4' %}" type="video/mp4">
+        <source src="{% static 'video/blur.mp4' %}" type="video/mp4">
     </video>
 
     <section class="page-section">
         <div class="page-container">
-            <h1 class="page-header">Portfölj</h1>
+            <h1> portfölj</h1>
             <div class="port-grid">
 
                 <!-- E-SHOP -->
@@ -25,17 +26,11 @@
                         <img class="port-thumb" src="{% static 'images/eshop-mobile-1.png' %}" data-full="{% static 'images/eshop-mobile-1.png' %}" alt="First half of all pages in mobile view">
                         <img class="port-thumb" src="{% static 'images/eshop-mobile-2.png' %}" data-full="{% static 'images/eshop-mobile-2.png' %}" alt="Second half of all pages in mobile view">
                         <img class="port-thumb" src="{% static 'images/eshop-desktop.png' %}" data-full="{% static 'images/eshop-desktop.png' %}" alt="Landing page">
-                        <img class="port-thumb" src="{% static 'images/eshop-mobile-full.png' %}" data-full="{% static 'images/eshop-mobile-full.png' %}" alt="Landing page">
                     </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">E-shop</h3>
-                        <p class="port-card-text">
-                            En e-handelsplattform byggd i Python/Django med produktkatalog, kategorier, kundkonton, varukorg och orderhantering. 
-                            Kunden kan skapa eget konto och på så vis ta del av sin orderhistorik. Fraktuppgifter sparas. 
-                            
-                            Transaktioner utförs med paypal, e-post via gmail, molnlagring via AWS S3 Bucket. 
-                            
-                            Elephantsql används som databas och Heroku för produktion. 
+                        <h3>E-shop</h3>
+                        <p>
+                            E-shop med produktkatalog, kategorier, kundkonton, varukorg och order hantering/historik.
                         </p>
                     </div>
                 </div>
@@ -49,14 +44,9 @@
                         <img class="port-thumb" src="{% static 'images/kompic-mobile-dashboard-full.png' %}" data-full="{% static 'images/kompic-mobile-dashboard-full.png' %}" alt="Hemsida i mobil format">
                     </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">Kompic</h3>
-                        <p class="port-card-text">
-                            P.g.a. Facebook samt övriga tjänster komprimerar mediafiler utvecklade jag KOMPIC för privat bruk. Appen fungerar både för Iphone och Android. För att undvika månatlig betalning till Playstore/Applestore får användaren en kod av mig för att registrera appen. 
-                            Användare kan registrera sig, hantera profiler, skapa vänrelationer och kommunicera.
-                            Systemet innehåller ett innehållsflöde där användare kan publicera inlägg med text, bilder, video och ljud, samt kommentera och gilla varandras innehåll.
-                            Applikationen har även en realtidschatt byggd med Django Channels och WebSockets, vilket möjliggör direkt kommunikation och filöverföring mellan användare.
-                            Kompic fungerar dessutom som en Progressive Web App med webmanifest, service worker, installationsfunktion och grundläggande offline-stöd.
-                            Systemet använder både lokal databas för utveckling och externa tjänster som Supabase, AWS S3, SMTP och Daphne för drift, lagring och realtidsfunktionalitet.
+                        <h3>Kompic</h3>
+                        <p>
+                            Blog/Chatt som fungerar både på Android/iOS utan månatlig betalning till playstore/applestore. Skapad för att ha möjlighet att skicka okomprimerade bilder och mediafiler till familj och vänner
                         </p>
                     </div>
                 </div>
@@ -64,24 +54,24 @@
                 <!-- TECHNET -->
                 <div class="port-col">
                     <img class="port-img" src="{% static 'images/mockup-technet.png' %}" alt="Technet webbplats">
-                        <div class="port-thumbs">
-                            <img class="port-thumb" src="{% static 'images/technet-desktop-full.png' %}" data-full="{% static 'images/technet-desktop-full.png' %}" alt="Hemsida i full bild">
-                            <img class="port-thumb" src="{% static 'images/technet-mobile-full.png' %}" data-full="{% static 'images/technet-mobile-full.png' %}" alt="Hemsida i mobil format">
-                            <button class="port-thumb port-thumb-video"
-                                    type="button"
-                                    data-type="video"
-                                    data-src="{% static 'video/technet-video.mp4' %}"
-                                    data-poster="{% static 'images/technet-thumb.png' %}"
-                                    data-alt="Technet demo video"
-                                    aria-label="Visa video">
-                                <img src="{% static 'images/technet-thumb.png' %}" alt="Video preview">
-                                <span class="play-icon">▶</span>
-                            </button>
-                        </div>
+                    <div class="port-thumbs">
+                        <img class="port-thumb" src="{% static 'images/technet-desktop-full.png' %}" data-full="{% static 'images/technet-desktop-full.png' %}" alt="Hemsida i full bild">
+                        <img class="port-thumb" src="{% static 'images/technet-mobile-full.png' %}" data-full="{% static 'images/technet-mobile-full.png' %}" alt="Hemsida i mobil format">
+                        <button class="port-thumb port-thumb-video"
+                                type="button"
+                                data-type="video"
+                                data-src="{% static 'video/technet-video.mp4' %}"
+                                data-poster="{% static 'images/technet-thumb.png' %}"
+                                data-alt="Technet demo video"
+                                aria-label="Visa video">
+                            <img src="{% static 'images/technet-thumb.png' %}" alt="Video preview">
+                            <span class="play-icon">▶</span>
+                        </button>
+                    </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">Technet AB</h3>
-                        <p class="port-card-text">
-                            Presentations sida för ett företag. Utvecklat i Python med Django Bootstrap frameworks.
+                        <h3>Technet AB</h3>
+                        <p>
+                            Presentationssida för ett företag.
                         </p>
                     </div>
                 </div>
@@ -89,24 +79,24 @@
                 <!-- RSAM -->
                 <div class="port-col">
                     <img class="port-img" src="{% static 'images/mockup-rsam.png' %}" alt="RSAM webbplats">
-                        <div class="port-thumbs">
-                            <img class="port-thumb" src="{% static 'images/rsam-full.png' %}" data-full="{% static 'images/rsam-full.png' %}" alt="Hemsida i full bild">
-                            <img class="port-thumb" src="{% static 'images/rsam-mobile.png' %}" data-full="{% static 'images/rsam-mobile.png' %}" alt="Hemsida i mobil format">
-                            <button class="port-thumb port-thumb-video"
-                                    type="button"
-                                    data-type="video"
-                                    data-src="{% static 'video/rsam-video.mp4' %}"
-                                    data-poster="{% static 'images/rsam-thumb.png' %}"
-                                    data-alt="RSAM demo video"
-                                    aria-label="Visa video">
-                                <img src="{% static 'images/rsam-thumb.png' %}" alt="Video preview">
-                                <span class="play-icon">▶</span>
-                            </button>
-                        </div>
+                    <div class="port-thumbs">
+                        <img class="port-thumb" src="{% static 'images/rsam-full.png' %}" data-full="{% static 'images/rsam-full.png' %}" alt="Hemsida i full bild">
+                        <img class="port-thumb" src="{% static 'images/rsam-mobile.png' %}" data-full="{% static 'images/rsam-mobile.png' %}" alt="Hemsida i mobil format">
+                        <button class="port-thumb port-thumb-video"
+                                type="button"
+                                data-type="video"
+                                data-src="{% static 'video/rsam-video.mp4' %}"
+                                data-poster="{% static 'images/rsam-thumb.png' %}"
+                                data-alt="RSAM demo video"
+                                aria-label="Visa video">
+                            <img src="{% static 'images/rsam-thumb.png' %}" alt="Video preview">
+                            <span class="play-icon">▶</span>
+                        </button>
+                    </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">RSAM</h3>
-                        <p class="port-card-text">
-                            Skapade en webbplats åt en rivnings firma som hade problem med föregående utvecklare. Dels kunde de inte få hemsidan som de vill samt fungerade den inte bra responsivt. Återbyggde den i Python, enligt önskad struktur och nu är de mer än nöjda. Projektet är kodat enligt standard vilket innebär att vilken utvecklare som helst kan fortsätta vidareutveckla om så önskas.
+                        <h3>RSAM</h3>
+                        <p>
+                            Hemsida åt ett rivningsbolag.
                         </p>
                     </div>
                 </div>
@@ -116,12 +106,12 @@
                     <img class="port-img" src="{% static 'images/mockup-tandklinik.png' %}" alt="Tandklinik webbplats">
                     <div class="port-thumbs">
                         <img class="port-thumb" src="{% static 'images/tand-desktop-full.png' %}" data-full="{% static 'images/tand-desktop-full.png' %}" alt="Hemsida i full format">
-                        <img class="port-thumb" src="{% static 'images//tand-mobile-full.png' %}" data-full="{% static 'images//tand-mobile-full.png' %}" alt="hemsida i mobil format">
+                        <img class="port-thumb" src="{% static 'images/tand-mobile-full.png' %}" data-full="{% static 'images/tand-mobile-full.png' %}" alt="hemsida i mobil format">
                     </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">Tandklinik</h3>
-                        <p class="port-card-text">
-                            En informativ och responsiv webbplats byggd i Django för att presentera klinikens tjänster på ett tydligt och förtroendeingivande sätt. Projektet har en ren teknisk struktur med fokus på användarvänlighet, snabb laddning och en stabil grund för vidare utveckling.
+                        <h3>Tandklinik</h3>
+                        <p>
+                            Hemsida åt en tandklinik
                         </p>
                     </div>
                 </div>
@@ -134,16 +124,14 @@
                         <img class="port-thumb" src="{% static 'images/wall-mobile-2.png' %}" data-full="{% static 'images/wall-mobile-2.png' %}" alt="blogg post">
                     </div>
                     <div class="port-card-body">
-                        <h3 class="port-card-title">Wall</h3>
-                        <p class="port-card-text">
-                            Ett kreativt Django-projekt med användarprofiler och bloggfunktionalitet, byggt med fokus på visuellt innehåll. 
-                            Projektet använder Cloudinary för bildhantering i molnet och kombinerar innehållshantering med ett uttrycksfullt formspråk.
+                        <h3>Wall</h3>
+                        <p>
+                            Skolprojekt - Blogg
                         </p>
                     </div>
                 </div>
 
             </div>
-
 
             <!-- LIGHTBOX -->
             <div class="img-lightbox" id="imgLightbox" aria-hidden="true">
@@ -159,9 +147,8 @@
         </div>
     </section>
 </div>
+{% endblock %}
 
-
+{% block extra_js %}
 <script src="{% static 'js/portfolio.js' %}"></script>
-
-</main>
 {% endblock %}

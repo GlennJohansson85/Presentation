@@ -1,32 +1,66 @@
-/* ==========================================================================   GLOBAL */
-html {
+/* ==========================================================================
+   1. NULLSTÄLLNING OCH GLOBALA INSTÄLLNINGAR
+   ========================================================================== */
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
 }
 
 body {
-    display       : flex;
+    display: flex;
     flex-direction: column;
-    min-height    : 100vh;
-    background-color: #020a09;
+    min-height: 100vh;
 }
 
 main {
-    width : 100%;
+    width: 100%;
     margin: 0 auto;
 }
 
-ul,
-li {
-    font-family: "Jost-300-light";
-    font-size  : 17px;
-    color      : #282828;
+/* Typografi */
+p {
+    margin     : 0;
+    font-family: "Saira-Regular", sans-serif;
+    font-size  : 1.125rem; /* 18px */
+    line-height: 1.7;
+    color      : #f0efef;
+    text-shadow: 1px 1px 1px #000;
+    text-align : center;
 }
 
+h1 {
+    margin        : 0 0 48px;
+    text-align    : center;
+    font-family   : "Saira-SemiBold", sans-serif;
+    text-transform: uppercase;
+    font-size     : clamp(3.5rem, 8vw, 4.5rem); /* Dynamisk storlek för alla skärmar */
+    letter-spacing: 0.2px;
+    color         : #dbbe39;
+    text-shadow   : 0 0 4px rgba(255, 253, 236, 0.4),
+                    0 0 15px rgba(0, 168, 150, 0.3);
+    
+    
+}
+
+h3 {
+    margin     : 0 0 10px;
+    text-align : center;
+    font-family: "Saira-SemiBold", sans-serif;
+    font-size  : 1.75rem;
+    color      : #dbbe39;
+    text-shadow   : 0 0 1px rgba(255, 253, 236, 0.4),
+                    0 0 2px rgba(0, 168, 150, 0.3);
+}
+
+/* ==========================================================================
+   2. SEKTIONS- & CONTAINER-LAYOUT
+   ========================================================================== */
 .page-section {
     position  : relative;
     min-height: 100vh;
-    margin    : 0;
-    padding   : 120px 0 80px;
+    padding   : 40px 0 80px;
     overflow  : hidden;
 }
 
@@ -39,29 +73,13 @@ li {
     padding  : 0 24px;
 }
 
-
-.page-header {
-    margin        : 0 0 48px;
-    text-align    : center;
-    font-family   : "next-bold";
-    font-size     : 72px;
-    letter-spacing: 0.4px;
-    color         : #fff;
-    text-shadow:1px 1px 1px #000;
-}
-
-/* ==========================================================================   HOME GLOBAL */
-
-
-/* Utgångspunkt för overlay */
+/* Bakgrundsvideo */
 .home-overlay {
     position  : relative;
     min-height: 100svh;
     overflow  : hidden;
-
 }
 
-/* VIDEO */
 .home-video {
     position      : absolute;
     inset         : 0;
@@ -71,12 +89,12 @@ li {
     z-index       : 1;
     pointer-events: none;
     opacity       : 0.8;
-    filter        : brightness(0.4) contrast(1.2);
+    filter        : brightness(0.8) contrast(1.2);
 }
 
-
-
-/* ==========================================================================   PORTFOLIO.HTML */
+/* ==========================================================================
+   3. PORTFÖLJGRID OCH KORT
+   ========================================================================== */
 .port-grid {
     display              : grid;
     grid-template-columns: repeat(3, 1fr);
@@ -88,22 +106,66 @@ li {
     display         : flex;
     flex-direction  : column;
     height          : 100%;
-    background-color: #0000007e;
+    background-color: rgba(48, 47, 47, 0.555);
     border-radius   : 20px;
     overflow        : hidden;
     position        : relative;
     z-index         : 2;
-    box-shadow      : 1px 1px 12px #fafafa3b;
+    box-shadow      : 1px 1px 12px rgba(250, 250, 250, 0.23);
 }
 
-/* --------------------------- PORT-VIDEO */
-.port-thumb-video {
-    position     : relative;
-    padding      : 0;
-    overflow     : hidden;
+.port-card-body {
+    padding: 18px 20px 22px;
+}
+
+
+
+/* Huvudbilder & Videominiatyrer */
+.port-img {
+    width     : 100%;
+    height    : 280px;
+    object-fit: contain;
+    display   : block;
+    padding   : 18px;
+    cursor    : zoom-in;
+    transition: transform 0.25s ease;
+}
+
+.port-img:hover {
+    transform: scale(1.02);
+}
+
+/* Tumnaglar (Bilder & Video-knappar) */
+.port-thumbs {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: center;
+    gap            : 10px;
+    padding        : 0 18px 18px;
+}
+
+.port-thumb {
+    width        : 86px;
+    height       : 86px;
+    object-fit   : cover;
+    display      : block;
     border       : 2px solid #414040;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor       : pointer;
+    transition   : transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow      : 1px 1px 12px rgba(250, 250, 250, 0.23);
+}
+
+.port-thumb:hover {
+    transform : translateY(-2px) scale(1.05);
+    box-shadow: 0 2px 12px rgba(65, 64, 64, 0.36);
+}
+
+.port-thumb-video {
+    position: relative;
+    padding : 0;
+    overflow: hidden;
+    border  : 2px solid #414040;
 }
 
 .port-thumb-video img {
@@ -124,72 +186,9 @@ li {
     pointer-events: none;
 }
 
-/* --------------------------- PORT-IMG */
-.port-img {
-    width           : 100%;
-    height          : 280px;
-    object-fit      : contain;
-    display         : block;
-    padding         : 18px;
-    cursor          : zoom-in;
-    transition      : transform 0.25s ease;
-
-
-}
-
-.port-img:hover {
-    transform: scale(1.02);
-}
-
-/* --------------------------- PORT-THUMB */
-.port-thumbs {
-    display        : flex;
-    flex-wrap      : wrap;
-    justify-content: center;
-    gap            : 10px;
-    padding        : 0 18px 18px;
-}
-
-.port-thumb {
-    width           : 86px;
-    height          : 86px;
-    object-fit      : cover;
-    display         : block;
-    border          : 1px solid #fffdec;
-    border-radius   : 4px;
-    cursor          : pointer;
-    transition      : transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-}
-
-.port-thumb:hover {
-    transform : translateY(-2px) scale(1.05);
-    box-shadow: 0 2px 12px #4140405b;
-}
-
-/* --------------------------- PORT-CARD */
-.port-card-body {
-    padding   : 18px 20px 22px;
-    border-top: none;
-}
-
-.port-card-title {
-    margin     : 0 0 10px;
-    text-align : center;
-    font-family: "next-bold";
-    font-size  : 28px;
-    color      : #fff;
-    text-shadow:1px 1px 1px #000;
-}
-
-.port-card-text {
-    margin     : 0;
-    font-family: "HelveticaBQ-Light";
-    font-size  : 20px;
-    color      : #fff;
-    text-shadow:1px 1px 1px #000;
-}
-
-/* --------------------------- LIGHTBOX */
+/* ==========================================================================
+   4. LIGHTBOX
+   ========================================================================== */
 .img-lightbox {
     position  : fixed;
     inset     : 0;
@@ -203,152 +202,112 @@ li {
 }
 
 .img-lightbox-stage {
-    position   : absolute;
-    inset      : 30px;
-    overflow   : auto;
-    display    : grid;
+    position: absolute;
+    inset: 30px;
+    overflow: auto;
+    display: grid;
     place-items: center;
 }
 
-.img-lightbox img {
-    display      : block;
-    max-width    : 92vw;
-    max-height   : 92vh;
-    width        : auto;
-    height       : auto;
-    object-fit   : contain;
+.img-lightbox img,
+#lightboxVideo {
+    display: block;
+    max-width: 92vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: 6px;
-    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
-    cursor       : zoom-in;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.img-lightbox img {
+    cursor: zoom-in;
 }
 
 .img-lightbox.zoomed img {
-    max-width : none;
+    max-width: none;
     max-height: none;
-    cursor    : zoom-out;
+    cursor: zoom-out;
 }
 
 .img-lightbox-close {
-    position   : absolute;
-    top        : 20px;
-    right      : 28px;
-    background : transparent;
-    border     : none;
-    color      : #fff;
-    font-size  : 48px;
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 48px;
     line-height: 1;
-    cursor     : pointer;
-    z-index    : 10000;
+    cursor: pointer;
+    z-index: 10000;
 }
 
 #lightboxVideo {
-    display      : none;
-    max-width    : 92vw;
-    max-height   : 92vh;
-    width        : auto;
-    height       : auto;
-    border-radius: 6px;
-    box-shadow   : 0 20px 50px rgba(0, 0, 0, 0.4);
-    background   : #000;
+    display: none;
+    background: #000;
 }
 
-/* ==========================================================================   TABLET  */
-@media (min-width: 769px) and (max-width: 1200px) {
+/* ==========================================================================
+   5. RESPONSIVITET (MEDIA QUERIES)
+   ========================================================================== */
 
-    /* ------------------------------------------------   GLOBAL */
+/* Surfplatta (768px - 1024px) */
+@media (max-width: 1024px) {
     .page-section {
-        padding: 110px 0 70px;
+        padding   : 40px 0 80px;
     }
 
     .page-container {
         padding: 0 20px;
     }
 
-    .page-header {
-        margin-bottom: 36px;
-    }
-
-    /* ------------------------------------------------   PORTFOLIO  */
-
-
     .port-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap                  : 22px;
+        gap: 22px;
     }
 
     .port-img {
-        height : 240px;
-        padding: 16px;
-    }
-
-    .port-thumbs {
-        gap    : 8px;
-        padding: 0 16px 16px;
+        height: 240px;
     }
 
     .port-thumb {
-        width : 64px;
+        width: 64px;
         height: 64px;
     }
-
-    .port-card-body {
-        padding: 16px 18px 20px;
-    }
-
 }
 
-/* ==========================================================================   MOBILE  */
-@media (max-width: 767.98px) {
-
-    /* ------------------------------------------------   GLOBAL  */
-    p,
-    ul,
-    li {
-        font-size: 16px;
+/* Mobil (Under 768px) */
+@media (max-width: 767px) {
+    p, ul, li {
+        font-size: 1rem; /* 16px */
     }
 
     .page-section {
-        padding: 100px 0 60px;
+        padding: 90px 0 50px;
     }
 
     .page-container {
         padding: 0 16px;
     }
 
-    .page-header {
-        font-size: 68px;
-
-    }
-
-    /* ------------------------------------------------   PORTFOLIO  */
-
-
     .port-grid {
         grid-template-columns: 1fr;
-        gap                  : 20px;
+        gap: 20px;
     }
 
     .port-img {
-        height : 220px;
+        height: 220px;
         padding: 14px;
     }
 
-    .port-thumbs {
-        gap    : 8px;
-        padding: 0 14px 14px;
+    .port-card-title {
+        font-size: 1.375rem; /* 22px */
     }
 
     .port-thumb {
-        width : 58px;
+        width: 58px;
         height: 58px;
     }
-
-    .port-card-body {
-        padding: 16px 16px 20px;
-    }
-
-    .port-card-title {
-        font-size: 22px;
-    }
-
 }
